@@ -21,14 +21,37 @@
 			INTRO_TEXT: 'Und sie untersützt mehrere Sprachen!'
 		});
 
-		$translateProvider.preferredLanguage('de');
-		$translateProvider.preferredLanguage('en');
+		//$translateProvider.preferredLanguage('de');
+		//$translateProvider.preferredLanguage('en');
 		$translateProvider.preferredLanguage('sv');
 	});
 
+	//define services
+	angular.module('MyModule').service('TabService', ['$log', function ($log) {
+
+		//fetches the url of the current window and active tab
+		this.requestCurrentTabUrl = function (callback) {
+
+			if (!chrome.tabs) {
+				$log.error("chrome.tabs api is not available in local mode");
+				return;
+			}
+
+			chrome.tabs.query({	active: true, currentWindow: true }, function (result) {
+				var tab = result[0];
+				var url = tab.url;
+				callback(url);
+			});
+
+		};
+	}]);
+
 	//define controllers
-	angular.module('MyModule').controller('MyController', ['$scope', function ($scope) {
+	angular.module('MyModule').controller('MyController', ['$scope', 'TabService', function ($scope, tabService) {
 		$scope.today = new Date();
+		tabService.requestCurrentTabUrl(function (result) {
+			alert(result);
+		});
 	}]);
 
 
