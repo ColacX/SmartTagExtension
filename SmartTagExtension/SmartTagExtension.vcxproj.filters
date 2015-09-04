@@ -1,0 +1,2400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Image Include="icon.png">
+      <Filter>binary</Filter>
+    </Image>
+    <Image Include="icon128.png">
+      <Filter>binary</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="popup.html">
+      <Filter>view</Filter>
+    </None>
+    <None Include="popup.js">
+      <Filter>view</Filter>
+    </None>
+    <None Include="manifest.json">
+      <Filter>main</Filter>
+    </None>
+    <None Include="Scripts\version.json">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_zu-za.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_zu.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_zh-tw.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_zh-hk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_zh-hant-tw.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_zh-hant-mo.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_zh-hant-hk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_zh-hant.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_zh-hans-sg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_zh-hans-mo.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_zh-hans-hk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_zh-hans-cn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_zh-hans.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_zh-cn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_zh.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_zgh-ma.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_zgh.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_yo-ng.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_yo-bj.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_yo.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_yi-001.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_yi.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_yav-cm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_yav.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_xog-ug.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_xog.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_xh-za.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_xh.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_wal-et.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_wal.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_wae-ch.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_wae.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_vun-tz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_vun.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_vo-001.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_vo.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_vi-vn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_vi.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ve-za.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ve.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_vai-vaii-lr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_vai-vaii.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_vai-latn-lr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_vai-latn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_vai.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_uz-latn-uz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_uz-latn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_uz-cyrl-uz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_uz-cyrl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_uz-arab-af.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_uz-arab.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_uz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ur-pk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ur-in.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ur.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_uk-ua.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_uk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ug-arab-cn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ug-arab.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ug.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_tzm-latn-ma.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_tzm-latn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_tzm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_twq-ne.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_twq.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ts-za.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ts.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_tr-tr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_tr-cy.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_tr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_to-to.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_to.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_tn-za.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_tn-bw.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_tn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_tl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_tig-er.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_tig.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ti-et.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ti-er.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ti.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_th-th.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_th.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_tg-cyrl-tj.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_tg-cyrl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_tg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_teo-ug.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_teo-ke.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_teo.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_te-in.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_te.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ta-sg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ta-my.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ta-lk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ta-in.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ta.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sw-ug.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sw-tz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sw-ke.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sw-cd.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_swc-cd.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_swc.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sw.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sv-se.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sv-fi.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sv-ax.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sv.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_st-za.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_st-ls.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_st.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ss-za.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ssy-er.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ssy.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ss-sz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ss.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sr-latn-xk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sr-latn-rs.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sr-latn-me.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sr-latn-ba.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sr-latn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sr-cyrl-xk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sr-cyrl-rs.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sr-cyrl-me.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sr-cyrl-ba.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sr-cyrl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sq-xk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sq-mk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sq-al.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sq.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_so-so.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_so-ke.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_so-et.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_so-dj.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_so.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sn-zw.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_smn-fi.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_smn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sl-si.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sk-sk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_si-lk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_si.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_shi-tfng-ma.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_shi-tfng.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_shi-latn-ma.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_shi-latn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_shi.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sg-cf.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ses-ml.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_se-se.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ses.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_se-no.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_seh-mz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_seh.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_se-fi.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_se.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sbp-tz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sbp.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_saq-ke.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_saq.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sah-ru.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_sah.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_rw-rw.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_rwk-tz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_rwk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_rw.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ru-ua.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ru-ru.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ru-md.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ru-kz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ru-kg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ru-by.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ru.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ro-ro.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ro-md.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_rof-tz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_rof.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ro.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_rn-bi.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_rn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_rm-ch.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_rm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_qu-pe.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_qu-ec.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_qu-bo.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_qu.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_pt-tl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_pt-st.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_pt-pt.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_pt-mz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_pt-mo.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_pt-gw.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_pt-cv.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_pt-br.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_pt-ao.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_pt.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ps-af.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ps.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_pl-pl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_pl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_pa-guru-in.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_pa-guru.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_pa-arab-pk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_pa-arab.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_pa.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_os-ru.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_os-ge.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_os.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_or-in.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_or.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_om-ke.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_om-et.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_om.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nyn-ug.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nyn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nus-sd.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nus.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nso-za.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nso.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nr-za.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_no-no.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_no.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nn-no.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nnh-cm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nnh.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nmg-cm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nmg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nl-sx.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nl-sr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nl-nl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nl-cw.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nl-bq.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nl-be.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nl-aw.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ne-np.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ne-in.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ne.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nd-zw.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nd.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nb-sj.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nb-no.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_nb.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_naq-na.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_naq.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_my-mm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_my.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mua-cm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mua.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mt-mt.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mt.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ms-latn-sg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ms-latn-my.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ms-latn-bn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ms-latn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ms.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mr-in.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mn-cyrl-mn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mn-cyrl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ml-in.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ml.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mk-mk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mgo-cm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mgo.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mg-mg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mgh-mz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mgh.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mfe-mu.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mfe.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mer-ke.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mer.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mas-tz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mas-ke.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_mas.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_lv-lv.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_lv.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_luy-ke.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_luy.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_luo-ke.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_luo.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_lu-cd.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_lu.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_lt-lt.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_lt.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_lo-la.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_lo.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ln-cg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ln-cf.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ln-cd.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ln-ao.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ln.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_lkt-us.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_lkt.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_lg-ug.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_lg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_lb-lu.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_lb.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_lag-tz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_lag.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ky-cyrl-kg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ky-cyrl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ky.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kw-gb.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kw.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ksh-de.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ksh.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ksf-cm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ksf.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ksb-tz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ksb.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ks-arab-in.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ks-arab.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ks.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ko-kr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ko-kp.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kok-in.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kok.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ko.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kn-in.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_km-kh.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_km.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kln-ke.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kln.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kl-gl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kkj-cm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kkj.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kk-cyrl-kz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kk-cyrl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ki-ke.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ki.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_khq-ml.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_khq.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kea-cv.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kea.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kde-tz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kde.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kam-ke.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kam.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ka-ge.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kab-dz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_kab.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ka.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_jmc-tz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_jmc.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_jgo-cm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_jgo.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ja-jp.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ja.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_iw.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_it-sm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_it-it.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_it-ch.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_it.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_is-is.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_is.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_in.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ii-cn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ii.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ig-ng.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ig.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_id-id.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_id.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ia-fr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ia.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_hy-am.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_hy.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_hu-hu.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_hu.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_hsb-de.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_hsb.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_hr-hr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_hr-ba.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_hr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_hi-in.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_hi.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_he-il.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_he.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_haw-us.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_haw.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ha-latn-ng.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ha-latn-ne.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ha-latn-gh.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ha-latn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ha.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_gv-im.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_gv.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_guz-ke.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_guz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_gu-in.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_gu.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_gsw-li.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_gsw-fr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_gsw-ch.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_gsw.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_gl-es.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_gl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_gd-gb.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_gd.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ga-ie.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ga.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fy-nl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fy.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fur-it.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fur.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-yt.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-wf.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-vu.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-tn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-tg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-td.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-sy.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-sn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-sc.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-rw.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-re.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-pm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-pf.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-ne.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-nc.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-mu.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-mr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-mq.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-ml.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-mg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-mf.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-mc.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-ma.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-lu.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-km.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-ht.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-gq.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-gp.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-gn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-gf.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-ga.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-fr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-dz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-dj.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-cm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-ci.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-ch.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-cg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-cf.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-cd.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-ca.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-bl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-bj.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-bi.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-bf.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr-be.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fo-fo.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fo.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fil-ph.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fil.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fi-fi.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fi.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ff-sn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ff-mr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ff-gn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ff-cm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ff.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fa-ir.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fa-af.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_fa.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ewo-cm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ewo.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_eu-es.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_eu.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_et-ee.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_et.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-ve.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-uy.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-us.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-sv.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-py.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-pr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-ph.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-pe.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-pa.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-ni.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-mx.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-ic.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-hn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-gt.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-gq.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-es.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-ec.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-ea.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-do.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-cu.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-cr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-co.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-cl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-bo.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-ar.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es-419.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_es.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_eo-001.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_eo.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-zw.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-zm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-za.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-ws.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-vu.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-vi.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-vg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-vc.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-us.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-um.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-ug.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-tz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-tv.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-tt.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-to.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-tk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-tc.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-sz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-sx.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-ss.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-sl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-sh.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-sg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-sd.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-sc.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-sb.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-rw.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-pw.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-pr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-pn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-pk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-ph.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-pg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-nz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-nu.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-nr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-ng.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-nf.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-na.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-my.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-mw.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-mu.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-mt.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-ms.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-mp.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-mo.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-mh.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-mg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-ls.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-lr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-lc.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-ky.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-kn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-ki.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-ke.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-jm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-je.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-iso.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-io.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-in.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-im.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-ie.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-hk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-gy.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-gu.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-gm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-gi.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-gh.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-gg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-gd.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-gb.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-fm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-fk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-fj.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-er.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-dm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-dg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-cx.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-cm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-ck.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-cc.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-ca.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-bz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-bw.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-bs.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-bm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-be.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-bb.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-au.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-as.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-ai.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-ag.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-150.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en-001.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_en.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_el-gr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_el-cy.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_el.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ee-tg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ee-gh.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ee.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ebu-ke.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ebu.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_dz-bt.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_dz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_dyo-sn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_dyo.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_dua-cm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_dua.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_dsb-de.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_dsb.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_dje-ne.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_dje.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_de-lu.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_de-li.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_de-de.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_de-ch.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_de-be.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_de-at.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_de.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_dav-ke.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_dav.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_da-gl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_da-dk.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_da.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_cy-gb.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_cy.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_cs-cz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_cs.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ckb-latn-iq.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ckb-latn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ckb-ir.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ckb-iq.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ckb-arab-ir.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ckb-arab-iq.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ckb-arab.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ckb.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_chr-us.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_chr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_cgg-ug.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_cgg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ca-it.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ca-fr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ca-es-valencia.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ca-es.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ca-ad.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ca.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_byn-er.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_byn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bs-latn-ba.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bs-latn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bs-cyrl-ba.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bs-cyrl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bs.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_brx-in.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_brx.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_br-fr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_br.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bo-in.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bo-cn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bo.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bn-in.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bn-bd.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bm-ml.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bm-latn-ml.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bm-latn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bg-bg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bez-tz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bez.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bem-zm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bem.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_be-by.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_be.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bas-cm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_bas.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_az-latn-az.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_az-latn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_az-cyrl-az.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_az-cyrl.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_az.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ast-es.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ast.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_as-in.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_asa-tz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_asa.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_as.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-ye.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-tn.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-td.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-sy.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-ss.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-so.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-sd.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-sa.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-qa.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-ps.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-om.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-mr.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-ma.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-ly.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-lb.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-kw.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-km.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-jo.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-iq.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-il.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-er.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-eh.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-eg.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-dz.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-dj.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-bh.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-ae.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar-001.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ar.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_am-et.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_am.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ak-gh.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_ak.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_agq-cm.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_agq.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_af-za.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_af-na.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_af.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_aa-et.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_aa-er.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_aa-dj.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\i18n\angular-locale_aa.js">
+      <Filter>Scripts\i18n</Filter>
+    </None>
+    <None Include="Scripts\errors.json">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-touch.min.js.map">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-touch.min.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-touch.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-scenario.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-sanitize.min.js.map">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-sanitize.min.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-sanitize.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-route.min.js.map">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-route.min.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-route.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-resource.min.js.map">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-resource.min.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-resource.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-mocks.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-messages.min.js.map">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-messages.min.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-messages.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-message-format.min.js.map">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-message-format.min.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-message-format.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-loader.min.js.map">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-loader.min.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-loader.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-csp.css">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-cookies.min.js.map">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-cookies.min.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-cookies.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-aria.min.js.map">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-aria.min.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-aria.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-animate.min.js.map">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-animate.min.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-animate.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular.min.js.map">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular.min.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="binary">
+      <UniqueIdentifier>{4e36522c-ccc9-40f0-959c-eebb2290b30d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="view">
+      <UniqueIdentifier>{9b5c3c39-2f01-49bf-ad6f-eb8b20a91194}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="controller">
+      <UniqueIdentifier>{2358a1a7-cc5e-466a-b5a0-da8f39821b1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="service">
+      <UniqueIdentifier>{559af724-0c26-4041-942c-cae04789dbe0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="model">
+      <UniqueIdentifier>{6998b800-d79f-4c0b-ba20-81b574ac14cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main">
+      <UniqueIdentifier>{26b4b7a4-05a5-4821-bb22-e78cf77a2a0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{68a599a5-96ac-42bf-a18a-8a531b8708c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\i18n">
+      <UniqueIdentifier>{8ff8619a-7e16-4f8d-b0e6-f37b2519d610}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="readme.txt">
+      <Filter>main</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

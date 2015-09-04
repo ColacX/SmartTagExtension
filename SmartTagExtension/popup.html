@@ -1,0 +1,44 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+<head>
+	<title>Smart Tag Extension</title>
+	<style>
+		body {
+			font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+			font-size: 100%;
+		}
+
+		#status {
+			/* avoid an excessively wide status text */
+			white-space: pre;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			max-width: 400px;
+		}
+	</style>
+
+	<script src="Scripts/angular.min.js"></script>
+	<!--<script src="Scripts/i18n/angular-locale_sv.js"></script>-->
+	<!--<script src="Scripts/i18n/angular-locale_en.js"></script>-->
+	<script src="Scripts/i18n/angular-locale_ja-jp.js"></script>
+	<script src="popup.js"></script>
+</head>
+<!--the ng-app directive is the main entry point for angularJS-->
+<body ng-app="MyApp" style="width:700px;max-width:700px;padding:5px 5px 5px 5px">
+	<span>HELLO WORLD {{843 / 42}}</span>
+	<div ng-controller="MyController">
+		<p>Name : <input type="text" ng-model="name"></p>
+		<h1>Hello {{name}}</h1>
+		{{today | date:'fullDate'}}
+	</div>
+
+
+	<div id="status"></div>
+	<img id="image-result" hidden>
+</body>
+</html>
