@@ -1,9 +1,38 @@
 'use strict';
-angular.module("MyApp", []).controller('MyController', ['$scope', function ($scope) {
-	$scope.today = new Date();
-}]);
+(function () {
+	//define module and dependencies to other modules
+	angular.module('MyModule', ['pascalprecht.translate']);
+
+	//configure module translations
+	angular.module('MyModule').config(function ($translateProvider) {
+
+		$translateProvider.translations('en', {
+			HEADLINE: 'Hello there, This is my awesome app!',
+			INTRO_TEXT: 'And it has i18n support!'
+		});
+
+		$translateProvider.translations('de', {
+			HEADLINE: 'Hey, das ist meine großartige App!',
+			INTRO_TEXT: 'Und sie untersützt mehrere Sprachen!'
+		});
+
+		$translateProvider.translations('sv', {
+			HEADLINE: 'Hejsan detta är min awesome app!',
+			INTRO_TEXT: 'Und sie untersützt mehrere Sprachen!'
+		});
+
+		$translateProvider.preferredLanguage('de');
+		$translateProvider.preferredLanguage('en');
+		$translateProvider.preferredLanguage('sv');
+	});
+
+	//define controllers
+	angular.module('MyModule').controller('MyController', ['$scope', function ($scope) {
+		$scope.today = new Date();
+	}]);
 
 
+})();
 
 // Copyright (c) 2014 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be

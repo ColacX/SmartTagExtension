@@ -2365,6 +2365,12 @@
       <Filter>Scripts</Filter>
     </None>
     <None Include="packages.config" />
+    <None Include="Scripts\angular-translate.min.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\angular-translate.js">
+      <Filter>Scripts</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="binary">
@@ -2372,15 +2378,6 @@
     </Filter>
     <Filter Include="view">
       <UniqueIdentifier>{9b5c3c39-2f01-49bf-ad6f-eb8b20a91194}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="controller">
-      <UniqueIdentifier>{2358a1a7-cc5e-466a-b5a0-da8f39821b1c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="service">
-      <UniqueIdentifier>{559af724-0c26-4041-942c-cae04789dbe0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="model">
-      <UniqueIdentifier>{6998b800-d79f-4c0b-ba20-81b574ac14cf}</UniqueIdentifier>
     </Filter>
     <Filter Include="main">
       <UniqueIdentifier>{26b4b7a4-05a5-4821-bb22-e78cf77a2a0a}</UniqueIdentifier>
@@ -2390,6 +2387,18 @@
     </Filter>
     <Filter Include="Scripts\i18n">
       <UniqueIdentifier>{8ff8619a-7e16-4f8d-b0e6-f37b2519d610}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tests">
+      <UniqueIdentifier>{d1c224b0-6992-4ce4-8d10-cedf6b502773}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="services">
+      <UniqueIdentifier>{559af724-0c26-4041-942c-cae04789dbe0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="models">
+      <UniqueIdentifier>{6998b800-d79f-4c0b-ba20-81b574ac14cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="controllers">
+      <UniqueIdentifier>{2358a1a7-cc5e-466a-b5a0-da8f39821b1c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

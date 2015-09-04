@@ -23,20 +23,22 @@
 	</style>
 
 	<script src="Scripts/angular.min.js"></script>
+	<script src="Scripts/angular-translate.min.js"></script>
 	<!--<script src="Scripts/i18n/angular-locale_sv.js"></script>-->
 	<!--<script src="Scripts/i18n/angular-locale_en.js"></script>-->
 	<script src="Scripts/i18n/angular-locale_ja-jp.js"></script>
 	<script src="popup.js"></script>
 </head>
+
 <!--the ng-app directive is the main entry point for angularJS-->
-<body ng-app="MyApp" style="width:700px;max-width:700px;padding:5px 5px 5px 5px">
+<body ng-app="MyModule" style="width:700px;max-width:700px;padding:5px 5px 5px 5px">
 	<span>HELLO WORLD {{843 / 42}}</span>
 	<div ng-controller="MyController">
 		<p>Name : <input type="text" ng-model="name"></p>
 		<h1>Hello {{name}}</h1>
 		{{today | date:'fullDate'}}
 	</div>
-
+	<p>{{ 'HEADLINE' | translate }}</p>
 
 	<div id="status"></div>
 	<img id="image-result" hidden>

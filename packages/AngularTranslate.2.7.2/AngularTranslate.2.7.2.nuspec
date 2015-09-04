@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>AngularTranslate</id>
+    <version>2.7.2</version>
+    <title>Angular Translate</title>
+    <authors>Pascal Precht</authors>
+    <owners>Pascal Precht</owners>
+    <licenseUrl>http://www.opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://angular-translate.github.io/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A translation module for AngularJS</description>
+  </metadata>
+</package>
