@@ -46,11 +46,36 @@
 		};
 	}]);
 
+	angular.module('MyModule').service('BookmarkService', ['$log', function ($log) {
+
+		//fetches the url of the current window and active tab
+		this.requestCurrentTabUrl = function (callback) {
+
+			if (!chrome.tabs) {
+				$log.error("chrome.tabs api is not available in local mode");
+				return;
+			}
+
+			chrome.tabs.query({ active: true, currentWindow: true }, function (result) {
+				var tab = result[0];
+				var url = tab.url;
+				callback(url);
+			});
+
+		};
+	}]);
+
 	//define controllers
 	angular.module('MyModule').controller('MyController', ['$scope', 'TabService', function ($scope, tabService) {
+		$scope.activeUrl = "requesting....";
 		$scope.today = new Date();
+		$scope.pageNumber = 0;
+		$scope.pageSize = 0;
+		$scope.itemCount = 0;
+
 		tabService.requestCurrentTabUrl(function (result) {
-			alert(result);
+			$scope.activeUrl = result;
+			$scope.$digest();
 		});
 	}]);
 

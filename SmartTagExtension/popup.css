@@ -1,0 +1,81 @@
+.main-container {
+	padding: 5px 5px 5px 5px;
+	min-width: 400px;
+}
+
+.url-text {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 100%;
+	overflow: hidden;
+}
+
+.search-container {
+	margin-top: 5px;
+}
+
+.paging-text {
+}
+
+.paging-size-field {
+	min-width: 10px;
+}
+
+.button-setting:active {
+	outline: auto;
+}
+
+.button-setting:hover {
+	opacity:0.7;
+}
+
+.button-setting {
+	background-image: url('settings24.png');
+	background-color: transparent;
+	border: none;
+	outline: none;
+}
+
+.icon-button{
+	display:inline-block;
+	font-size:0;
+	overflow:hidden;
+	outline:none;
+	border:none;
+	vertical-align:middle;
+	background-color:transparent;
+	background-repeat: no-repeat;
+}
+
+.icon-close {
+	background-image: url('cross-16-16.png');
+	background-position: center;
+	width:16px;
+	height:16px;
+}
+
+.icon-setting {
+	background-image: url('gear-32-32.png');
+	background-position: center;
+	width:16px;
+	height:16px;
+}
+
+.tag-container{
+	margin:6px 6px 0px 0px;
+}
+
+.tag-item:hover{
+	background-color:rgb(0, 200, 200);
+}
+
+.tag-item{
+	background-color:transparent;
+	border:dotted 1px;
+	margin-right:1px;
+	padding:2px 2px 2px 2px;
+}
+
+.tag-text{
+	text-align:center;
+}
