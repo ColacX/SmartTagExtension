@@ -13,12 +13,12 @@
 	<script src="Scripts/angular-translate.min.js"></script>
 	<!--<script src="Scripts/i18n/angular-locale_sv.js"></script>-->
 	<!--<script src="Scripts/i18n/angular-locale_en.js"></script>-->
-	<script src="Scripts/i18n/angular-locale_ja-jp.js"></script>
+	<!--<script src="Scripts/i18n/angular-locale_ja-jp.js"></script>-->
 	<script src="popup.js"></script>
 </head>
 
 <!--the ng-app directive is the main entry point for angularJS-->
-<body ng-app="MyModule" class="main-container">
+<body ng-app="MyModule" class="popup-container">
 	<div ng-controller="MyController">
 		<div><input class="url-text" type="text" ng-model="activeUrl" value="{{activeUrl}}" /></div>
 		<div class="tag-container">
@@ -34,6 +34,7 @@
 				<span class="tag-text">int</span>
 				<span class="icon-button icon-close"></span>
 			</span>
+			<span class="tag-input" contenteditable="true" my-auto-focus></span>
 		</div>
 
 		<!--<div class="search-container">

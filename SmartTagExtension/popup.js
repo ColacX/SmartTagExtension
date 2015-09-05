@@ -47,13 +47,12 @@
 	}]);
 
 	angular.module('MyModule').service('BookmarkService', ['$log', function ($log) {
-
 		//fetches the url of the current window and active tab
 		this.requestCurrentTabUrl = function (callback) {
 
 			if (!chrome.tabs) {
-				$log.error("chrome.tabs api is not available in local mode");
-				return;
+				$log.error("chrome.tabs api is only available in extension mode");
+				return callback("request error");
 			}
 
 			chrome.tabs.query({ active: true, currentWindow: true }, function (result) {
@@ -61,13 +60,12 @@
 				var url = tab.url;
 				callback(url);
 			});
-
 		};
 	}]);
 
 	//define controllers
 	angular.module('MyModule').controller('MyController', ['$scope', 'TabService', function ($scope, tabService) {
-		$scope.activeUrl = "requesting....";
+		$scope.activeUrl = "requesting...";
 		$scope.today = new Date();
 		$scope.pageNumber = 0;
 		$scope.pageSize = 0;
@@ -79,5 +77,14 @@
 		});
 	}]);
 
-
+	//define directives
+	angular.module('MyModule').directive('myAutoFocus', ['$document', function ($document) {
+		return {
+			link: function (scope, element, attributes, controller) {
+				angular.element($document).ready(function () {
+					element[0].focus();
+				});
+			}
+		};
+	}]);
 })();
