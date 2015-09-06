@@ -64,12 +64,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Image Include="cross-16-16.png" />
+    <Image Include="gear-32-32.png" />
     <Image Include="icon.png" />
     <Image Include="icon128.png" />
+    <Image Include="settings24.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="BookmarkService.js" />
     <None Include="manifest.json" />
+    <None Include="MyModule.js" />
     <None Include="packages.config" />
+    <None Include="popup.css" />
     <None Include="popup.html" />
     <None Include="popup.js" />
     <None Include="Scripts\angular-animate.js" />

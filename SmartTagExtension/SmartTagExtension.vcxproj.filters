@@ -7,12 +7,16 @@
     <Image Include="icon128.png">
       <Filter>binary</Filter>
     </Image>
+    <Image Include="settings24.png" />
+    <Image Include="gear-32-32.png">
+      <Filter>binary</Filter>
+    </Image>
+    <Image Include="cross-16-16.png">
+      <Filter>binary</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="popup.html">
-      <Filter>view</Filter>
-    </None>
-    <None Include="popup.js">
       <Filter>view</Filter>
     </None>
     <None Include="manifest.json">
@@ -2371,6 +2375,18 @@
     <None Include="Scripts\angular-translate.js">
       <Filter>Scripts</Filter>
     </None>
+    <None Include="popup.css">
+      <Filter>view</Filter>
+    </None>
+    <None Include="popup.js">
+      <Filter>view</Filter>
+    </None>
+    <None Include="BookmarkService.js">
+      <Filter>services</Filter>
+    </None>
+    <None Include="MyModule.js">
+      <Filter>main</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="binary">
@@ -2399,6 +2415,9 @@
     </Filter>
     <Filter Include="controllers">
       <UniqueIdentifier>{2358a1a7-cc5e-466a-b5a0-da8f39821b1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content">
+      <UniqueIdentifier>{05fd5e6b-808f-45ea-b2fa-3d5dd1cd14c6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
