@@ -45,3 +45,14 @@ angular.module('MyModule').service('TabService', ['$log', function ($log) {
 
 	};
 }]);
+
+//define directives
+angular.module('MyModule').directive('myAutoFocus', ['$document', function ($document) {
+	return {
+		link: function (scope, element, attributes, controller) {
+			angular.element($document).ready(function () {
+				element[0].focus();
+			});
+		}
+	};
+}]);
