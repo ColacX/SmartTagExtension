@@ -39,8 +39,7 @@ angular.module('MyModule').service('TabService', ['$log', function ($log) {
 
 		chrome.tabs.query({ active: true, currentWindow: true }, function (result) {
 			var tab = result[0];
-			var url = tab.url;
-			callback(url);
+			callback(tab.url, tab.title);
 		});
 
 	};

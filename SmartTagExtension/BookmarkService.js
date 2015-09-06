@@ -3,15 +3,12 @@
 //service that interacts with the browser bookmarks
 angular.module('MyModule').service('BookmarkService', ['$log', function ($log) {
 	this.requestUrlTagData = function (callback) {
-
 		if (!chrome.bookmarks) {
 			$log.error("chrome.bookmarks api is only available when running as a browser extension");
-			return callback(null, null);
+			return callback();
 		}
 
-		//if (!window.confirm("are you sure?")) {
-		//	return;
-		//}
+		$log.info("requesting bookmarks...");
 
 		chrome.bookmarks.getTree(function (result) {
 			$log.info(result);
@@ -48,7 +45,8 @@ angular.module('MyModule').service('BookmarkService', ['$log', function ($log) {
 					//create a new urlItem if urlName was unknown
 					urls[urlName] = {
 						added: node.dateAdded,
-						title: node.title
+						title: node.title,
+						tags: {}
 					};
 					return urlName;
 				}
@@ -79,6 +77,9 @@ angular.module('MyModule').service('BookmarkService', ['$log', function ($log) {
 					var tagItem = tags[tagName];
 					tagItem[urlName] = null;
 
+					//and vice versa
+					urls[urlName].tags[tagName] = null;
+
 					//go back up the tree so it can receive the next tag
 					return urlName;
 				}
@@ -107,12 +108,21 @@ angular.module('MyModule').service('BookmarkService', ['$log', function ($log) {
 			var urlList, tagList, url2tagIndex, tag2urlIndex;
 			urlList = [];
 			tagList = [];
+			url2tagIndex = {};
+			tag2urlIndex = {};
+
+			for (var property in urls) {
+				urlList.push(property);
+			}
 
 			for (var property in tags) {
 				tagList.push(property);
 			}
 
-			callback(urlList, tagList);
+			url2tagIndex = urls;
+			tag2urlIndex = tags;
+
+			callback(urlList, tagList, url2tagIndex, tag2urlIndex);
 		});
 	};
 }]);

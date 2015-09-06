@@ -22,18 +22,20 @@
 
 <!--the ng-app directive is the main entry point for angularJS-->
 <body ng-app="MyModule" ng-controller="MyController" class="popup-container">
-	<input type="text" ng-model="urlSelected" class="form-control" />
+
+	<input type="text" ng-model="model.title" class="form-control" placeholder="requesting title" />
+	<input type="text" ng-model="model.url" class="form-control" placeholder="requeesting url" />
 
 	<input type="text"
 		   class="form-control"
 		   ng-model="tagSelected"
 		   placeholder="add tag here"
-		   typeahead="tagItem for tagItem in tagCollection | filter:$viewValue"
+		   typeahead="tagItem for tagItem in tagList | filter:$viewValue"
 		   typeahead-loading="true"
 		   my-auto-focus
 		   ng-keypress="inputKeyPress($event)" />
 
-	<button type="button" class="btn btn-primary btn-xs" ng-repeat="tagItem in modelTags track by $index" ng-click="removeTag(tagItem)">{{tagItem}}</button>
+	<button type="button" class="btn btn-primary btn-xs" ng-repeat="tagItem in model.tags track by $index" ng-click="removeTag(tagItem)">{{tagItem}}</button>
 
 	<!--<button type="button" class="btn btn-default btn-xs">
 		<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>

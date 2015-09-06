@@ -1,21 +1,34 @@
 'use strict';
 //define controllers
-angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$log', 'TabService', 'BookmarkService', function ($scope, $timeout, $log, tabService, bookmarkService) {
-	$scope.urlSelected = "requesting...";
+angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$log', 'TabService', 'BookmarkService',
+function ($scope, $timeout, $log, tabService, bookmarkService) {
+	var ctrl = this;
+	$scope.model = {};
+	$scope.model.url = "";
+	$scope.model.title = "";
 	$scope.tagSelected = "";
-	$scope.modelTags = [];
-	$scope.tagCollection = [];
-
-	tabService.requestCurrentTabUrl(function (result) {
-		$scope.urlSelected = result;
-		$scope.$digest();
-	});
-
-	bookmarkService.requestUrlTagData(function (urls, tags, url2tagIndex, tag2urlIndex) {
-		$scope.tagCollection = tags;
-	});
+	$scope.model.tags = [];
+	$scope.urlList = [];
+	$scope.tagList = [];
+	ctrl.url2tagIndex = {};
+	ctrl.tag2urlIndex = {};
 
 	this.loadModel = function (urlName) {
+		if (!urlName || !ctrl.url2tagIndex[urlName]) {
+			return;
+		}
+
+		$log.info(ctrl.url2tagIndex[urlName]);
+		$scope.model.tags = [];
+
+		for (var property in ctrl.url2tagIndex[urlName].tags) {
+			$scope.model.tags.push(property);
+		}
+
+		$scope.$digest();
+	}
+
+	this.saveModel = function () {
 
 	}
 
@@ -27,13 +40,15 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 			}
 
 			$scope.tagSelected = $scope.tagSelected.trim();
-
-			if ($scope.modelTags.indexOf($scope.tagSelected) === -1) {
-				//add new tag if it was not found
-				$scope.modelTags.push($scope.tagSelected);
-			}
-
+			$scope.appendTag($scope.tagSelected);
 			$scope.tagSelected = "";
+		}
+	}
+
+	$scope.appendTag = function (tagName) {
+		if ($scope.modelTags.indexOf($scope.tagSelected) === -1) {
+			//add new tag if it was not found
+			$scope.modelTags.push($scope.tagSelected);
 		}
 	}
 
@@ -52,4 +67,19 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 
 		$scope.modelTags.splice(index, 1);
 	};
+
+	//-------------do work after definitions-------------------------
+	bookmarkService.requestUrlTagData(function (urls, tags, url2tagIndex, tag2urlIndex) {
+		$scope.urlList = urls;
+		$scope.tagList = tags;
+		ctrl.url2tagIndex = url2tagIndex;
+		ctrl.tag2urlIndex = tag2urlIndex;
+
+		tabService.requestCurrentTabUrl(function (url, title) {
+			$scope.model.url = url;
+			$scope.model.title = title;
+			$scope.$digest();
+			ctrl.loadModel($scope.model.url);
+		});
+	});
 }]);
