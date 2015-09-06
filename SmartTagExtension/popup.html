@@ -19,27 +19,8 @@
 <body ng-app="MyModule" class="popup-container">
 	<div ng-controller="MyController">
 		<div><input class="url-text" type="text" ng-model="activeUrl" value="{{activeUrl}}" /></div>
-
-		<div class="tag-container">
-			<span class="tag-item">
-				<span class="tag-text">misc</span>
-				<span class="icon-button icon-delete"></span>
-			</span>
-			<span class="tag-item">
-				<span class="tag-text">fun</span>
-				<span class="icon-button icon-delete"></span>
-			</span>
-			<span class="tag-item">
-				<span class="tag-text">int</span>
-				<span class="icon-button icon-delete"></span>
-			</span>
-			<span class="tag-input" contenteditable="true" my-auto-focus></span>
-		</div>
-
 		<my-tag-editor></my-tag-editor>
-
-		<my-tag-input></my-tag-input>
-
+		
 		<!--<div class="result-container">
 			<div class="result-item">asdasd sadsad</div>
 			<div class="result-item"><a href="http://www.google.se">url</a></div>
