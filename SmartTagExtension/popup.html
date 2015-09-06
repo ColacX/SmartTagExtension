@@ -1,15 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Smart Tag Extension</title>
-	<link rel="stylesheet" type="text/css" href="popup.css">
+	<link rel="stylesheet" type="text/css" href="popup.css" />
+	<link rel="stylesheet" type="text/css" href="Content/bootstrap.min.css" />
 	
-	<!--<script src="Scripts/angular.min.js"></script>-->
-	<script src="Scripts/angular.js"></script>
+	<script src="Scripts/angular.min.js"></script>
 	<script src="Scripts/angular-translate.min.js"></script>
+	<script src="Scripts/angular-animate.min.js"></script>
 	<!--<script src="Scripts/i18n/angular-locale_sv.js"></script>-->
 	<!--<script src="Scripts/i18n/angular-locale_en.js"></script>-->
 	<!--<script src="Scripts/i18n/angular-locale_ja-jp.js"></script>-->
+	
+	<script src="Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+
+
 	<script src="MyModule.js"></script>
 	<script src="BookmarkService.js"></script>
 	<script src="popup.js"></script>
@@ -17,10 +22,27 @@
 
 <!--the ng-app directive is the main entry point for angularJS-->
 <body ng-app="MyModule" class="popup-container">
+
+	<!--<div style="width:100px; background-color:red; height: 1000px; position:absolute;"></div>-->
+
 	<div ng-controller="MyController">
-		<div><input class="url-text" type="text" ng-model="activeUrl" value="{{activeUrl}}" /></div>
-		<my-tag-editor></my-tag-editor>
+		<input type="text" ng-model="activeUrl" class="form-control" />
+
+		<!--<my-tag-editor></my-tag-editor>
 		
+		<input type="text" ng-model="customSelected" placeholder="Custom template" typeahead="state as state.name for state in statesWithFlags"
+			   typeahead-template-url="customTemplate.html" class="form-control">-->
+
+		<input type="text"
+			   class="form-control"
+			   ng-model="tagSelected"
+			   placeholder="add tag here"
+			   typeahead="tagItem for tagItem in tagCollection | filter:$viewValue"
+			   typeahead-loading="true"
+			   my-auto-focus
+			   ng-keypress="inputKeyPress($event)" />
+
+		<hr />
 		<!--<div class="result-container">
 			<div class="result-item">asdasd sadsad</div>
 			<div class="result-item"><a href="http://www.google.se">url</a></div>

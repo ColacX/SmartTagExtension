@@ -71,7 +71,20 @@
     <Image Include="settings24.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\packages\jQuery.1.9.1\Tools\jquery-1.9.1.intellisense.js" />
     <None Include="BookmarkService.js" />
+    <None Include="Content\bootstrap-theme.css" />
+    <None Include="Content\bootstrap-theme.css.map" />
+    <None Include="Content\bootstrap-theme.min.css" />
+    <None Include="Content\bootstrap.css" />
+    <None Include="Content\bootstrap.css.map" />
+    <None Include="Content\bootstrap.min.css" />
+    <None Include="Content\ui-bootstrap-csp.css" />
+    <None Include="customTemplate.html" />
+    <None Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="fonts\glyphicons-halflings-regular.svg" />
+    <None Include="fonts\glyphicons-halflings-regular.woff" />
+    <None Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="manifest.json" />
     <None Include="MyModule.js" />
     <None Include="packages.config" />
@@ -113,9 +126,15 @@
     <None Include="Scripts\angular-touch.min.js.map" />
     <None Include="Scripts\angular-translate.js" />
     <None Include="Scripts\angular-translate.min.js" />
+    <None Include="Scripts\angular-ui\ui-bootstrap-tpls.js" />
+    <None Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
+    <None Include="Scripts\angular-ui\ui-bootstrap.js" />
+    <None Include="Scripts\angular-ui\ui-bootstrap.min.js" />
     <None Include="Scripts\angular.js" />
     <None Include="Scripts\angular.min.js" />
     <None Include="Scripts\angular.min.js.map" />
+    <None Include="Scripts\bootstrap.js" />
+    <None Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\errors.json" />
     <None Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <None Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -861,10 +880,16 @@
     <None Include="Scripts\i18n\angular-locale_zh.js" />
     <None Include="Scripts\i18n\angular-locale_zu-za.js" />
     <None Include="Scripts\i18n\angular-locale_zu.js" />
+    <None Include="Scripts\jquery-1.9.1.js" />
+    <None Include="Scripts\jquery-1.9.1.min.js" />
+    <None Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Scripts\version.json" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="fonts\glyphicons-halflings-regular.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

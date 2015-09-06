@@ -2,12 +2,11 @@
 
 //service that interacts with the browser bookmarks
 angular.module('MyModule').service('BookmarkService', ['$log', function ($log) {
-	//fetches the url of the current window and active tab
-	this.test = function (callback) {
+	this.requestUrlTagData = function (callback) {
 
 		if (!chrome.bookmarks) {
-			throw "chrome.bookmarks api is only available when running as a browser extension";
-			return;
+			$log.error("chrome.bookmarks api is only available when running as a browser extension");
+			return callback(null, null);
 		}
 
 		//if (!window.confirm("are you sure?")) {
@@ -103,6 +102,17 @@ angular.module('MyModule').service('BookmarkService', ['$log', function ($log) {
 
 			$log.info(urls);
 			$log.info(tags);
+
+			//post process
+			var urlList, tagList, url2tagIndex, tag2urlIndex;
+			urlList = [];
+			tagList = [];
+
+			for (var property in tags) {
+				tagList.push(property);
+			}
+
+			callback(urlList, tagList);
 		});
 	};
 }]);

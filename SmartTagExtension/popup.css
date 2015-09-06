@@ -1,6 +1,11 @@
+html{
+	overflow:auto;
+}
+
 .popup-container {
 	padding: 5px 5px 5px 5px;
 	min-width: 400px;
+	min-height: 600px;
 }
 
 .url-text {

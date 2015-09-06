@@ -2387,6 +2387,70 @@
     <None Include="MyModule.js">
       <Filter>main</Filter>
     </None>
+    <None Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js">
+      <Filter>Scripts\angular-ui</Filter>
+    </None>
+    <None Include="Scripts\angular-ui\ui-bootstrap-tpls.js">
+      <Filter>Scripts\angular-ui</Filter>
+    </None>
+    <None Include="Scripts\angular-ui\ui-bootstrap.min.js">
+      <Filter>Scripts\angular-ui</Filter>
+    </None>
+    <None Include="Scripts\angular-ui\ui-bootstrap.js">
+      <Filter>Scripts\angular-ui</Filter>
+    </None>
+    <None Include="Content\ui-bootstrap-csp.css">
+      <Filter>Content</Filter>
+    </None>
+    <None Include="Scripts\jquery-1.9.1.min.map">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\jquery-1.9.1.min.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\jquery-1.9.1.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="..\packages\jQuery.1.9.1\Tools\jquery-1.9.1.intellisense.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\bootstrap.min.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Scripts\bootstrap.js">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="fonts\glyphicons-halflings-regular.woff2">
+      <Filter>fonts</Filter>
+    </None>
+    <None Include="fonts\glyphicons-halflings-regular.woff">
+      <Filter>fonts</Filter>
+    </None>
+    <None Include="fonts\glyphicons-halflings-regular.svg">
+      <Filter>fonts</Filter>
+    </None>
+    <None Include="fonts\glyphicons-halflings-regular.eot">
+      <Filter>fonts</Filter>
+    </None>
+    <None Include="Content\bootstrap-theme.min.css">
+      <Filter>Content</Filter>
+    </None>
+    <None Include="Content\bootstrap-theme.css.map">
+      <Filter>Content</Filter>
+    </None>
+    <None Include="Content\bootstrap-theme.css">
+      <Filter>Content</Filter>
+    </None>
+    <None Include="Content\bootstrap.min.css">
+      <Filter>Content</Filter>
+    </None>
+    <None Include="Content\bootstrap.css.map">
+      <Filter>Content</Filter>
+    </None>
+    <None Include="Content\bootstrap.css">
+      <Filter>Content</Filter>
+    </None>
+    <None Include="customTemplate.html" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="binary">
@@ -2419,10 +2483,21 @@
     <Filter Include="Content">
       <UniqueIdentifier>{05fd5e6b-808f-45ea-b2fa-3d5dd1cd14c6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts\angular-ui">
+      <UniqueIdentifier>{bc693599-1c05-4c18-90c2-652e6005dc01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="fonts">
+      <UniqueIdentifier>{aad0331e-ee7c-4f61-a66b-4141e63e252b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.txt">
       <Filter>main</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="fonts\glyphicons-halflings-regular.ttf">
+      <Filter>fonts</Filter>
+    </Font>
   </ItemGroup>
 </Project>

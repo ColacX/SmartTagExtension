@@ -1,7 +1,7 @@
 'use strict';
 
 //define module and dependencies to other modules
-angular.module('MyModule', ['pascalprecht.translate']);
+angular.module('MyModule', ['pascalprecht.translate', 'ngAnimate', 'ui.bootstrap']);
 
 //define translations
 angular.module('MyModule').config(function ($translateProvider) {
@@ -33,7 +33,7 @@ angular.module('MyModule').service('TabService', ['$log', function ($log) {
 	this.requestCurrentTabUrl = function (callback) {
 
 		if (!chrome.tabs) {
-			throw "chrome.tabs api is only available when running as a browser extension";
+			$log.error("chrome.tabs api is only available when running as a browser extension");
 			return callback("request error");
 		}
 
