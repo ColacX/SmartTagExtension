@@ -4,14 +4,14 @@
 	<title>Smart Tag Extension</title>
 	<link rel="stylesheet" type="text/css" href="popup.css" />
 	<link rel="stylesheet" type="text/css" href="Content/bootstrap.min.css" />
-	
+
 	<script src="Scripts/angular.min.js"></script>
 	<script src="Scripts/angular-translate.min.js"></script>
 	<script src="Scripts/angular-animate.min.js"></script>
 	<!--<script src="Scripts/i18n/angular-locale_sv.js"></script>-->
 	<!--<script src="Scripts/i18n/angular-locale_en.js"></script>-->
 	<!--<script src="Scripts/i18n/angular-locale_ja-jp.js"></script>-->
-	
+
 	<script src="Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
 
 
@@ -21,49 +21,24 @@
 </head>
 
 <!--the ng-app directive is the main entry point for angularJS-->
-<body ng-app="MyModule" class="popup-container">
+<body ng-app="MyModule" ng-controller="MyController" class="popup-container">
+	<input type="text" ng-model="urlSelected" class="form-control" />
 
-	<!--<div style="width:100px; background-color:red; height: 1000px; position:absolute;"></div>-->
+	<input type="text"
+		   class="form-control"
+		   ng-model="tagSelected"
+		   placeholder="add tag here"
+		   typeahead="tagItem for tagItem in tagCollection | filter:$viewValue"
+		   typeahead-loading="true"
+		   my-auto-focus
+		   ng-keypress="inputKeyPress($event)" />
 
-	<div ng-controller="MyController">
-		<input type="text" ng-model="activeUrl" class="form-control" />
+	<button type="button" class="btn btn-primary btn-xs" ng-repeat="tagItem in modelTags track by $index" ng-click="removeTag(tagItem)">{{tagItem}}</button>
 
-		<!--<my-tag-editor></my-tag-editor>
-		
-		<input type="text" ng-model="customSelected" placeholder="Custom template" typeahead="state as state.name for state in statesWithFlags"
-			   typeahead-template-url="customTemplate.html" class="form-control">-->
+	<!--<button type="button" class="btn btn-default btn-xs">
+		<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+	</button>-->
 
-		<input type="text"
-			   class="form-control"
-			   ng-model="tagSelected"
-			   placeholder="add tag here"
-			   typeahead="tagItem for tagItem in tagCollection | filter:$viewValue"
-			   typeahead-loading="true"
-			   my-auto-focus
-			   ng-keypress="inputKeyPress($event)" />
-
-		<hr />
-		<!--<div class="result-container">
-			<div class="result-item">asdasd sadsad</div>
-			<div class="result-item"><a href="http://www.google.se">url</a></div>
-			<div class="result-item"><a href="www.google.se">url</a></div>
-			<div class="result-item"><a href="www.google.se">url</a></div>
-			<div class="result-item"><a href="www.google.se">url</a></div>
-			<div class="result-item"><a href="www.google.se">url</a></div>
-		</div>
-
-		<button ng-click="test0()">test0</button>
-		<button ng-click="test1()">test1</button>
-		<button ng-click="test2()">test2</button>-->
-
-		<!--<div class="search-container">
-			<div class="paging-text">
-				{{pageNumber}} of {{itemCount}}. Size:<input class="paging-size-field" type="text" ng-model="{{pageSize}}" />
-				<button>P</button><button>N</button>
-			</div>
-		</div>-->
-		<!--{{today | date:'fullDate'}}
-		{{ 'HEADLINE' | translate }}-->
-	</div>
+	<hr />
 </body>
 </html>
