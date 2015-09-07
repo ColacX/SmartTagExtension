@@ -2451,6 +2451,7 @@
       <Filter>Content</Filter>
     </None>
     <None Include="customTemplate.html" />
+    <None Include="StorageService.js" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="binary">

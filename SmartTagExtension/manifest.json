@@ -10,9 +10,10 @@
     "default_popup": "popup.html"
   },
   "permissions": [
-	"tabs",
+    "tabs",
     "activeTab",
-	"bookmarks",
+    "bookmarks",
+    "storage",
     "https://ajax.googleapis.com/"
   ]
 }
