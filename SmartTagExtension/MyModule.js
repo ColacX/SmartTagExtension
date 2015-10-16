@@ -30,7 +30,7 @@ angular.module('MyModule').config(function ($translateProvider) {
 angular.module('MyModule').service('TabService', ['$log', function ($log) {
 
 	//fetches the url of the current window and active tab
-	this.requestCurrentTabUrl = function (callback) {
+	this.requestCurrentTabData = function (callback) {
 
 		if (!chrome.tabs) {
 			$log.error("chrome.tabs api is only available when running as a browser extension");
@@ -39,7 +39,11 @@ angular.module('MyModule').service('TabService', ['$log', function ($log) {
 
 		chrome.tabs.query({ active: true, currentWindow: true }, function (result) {
 			var tab = result[0];
-			callback(tab.url, tab.title);
+			callback({
+				url: tab.url,
+				title: tab.title
+				//favIconUrl: tab.favIconUrl
+			});
 		});
 
 	};

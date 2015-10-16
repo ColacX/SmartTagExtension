@@ -2,13 +2,16 @@
 
 //service that interacts with the browser bookmarks
 angular.module('MyModule').service('BookmarkService', ['$log', function ($log) {
-	this.requestUrlTagData = function (callback) {
+	this.requestData = function (callback) {
+
 		if (!chrome.bookmarks) {
 			$log.error("chrome.bookmarks api is only available when running as a browser extension");
-			return callback();
+			return callback(null, null);
 		}
 
-		$log.info("requesting bookmarks...");
+		//if (!window.confirm("are you sure?")) {
+		//	return;
+		//}
 
 		chrome.bookmarks.getTree(function (result) {
 			$log.info(result);
@@ -77,7 +80,7 @@ angular.module('MyModule').service('BookmarkService', ['$log', function ($log) {
 					var tagItem = tags[tagName];
 					tagItem[urlName] = null;
 
-					//and vice versa
+					//map url to tag
 					urls[urlName].tags[tagName] = null;
 
 					//go back up the tree so it can receive the next tag
@@ -103,26 +106,31 @@ angular.module('MyModule').service('BookmarkService', ['$log', function ($log) {
 
 			$log.info(urls);
 			$log.info(tags);
+			callback(urls, tags);
 
-			//post process
-			var urlList, tagList, url2tagIndex, tag2urlIndex;
-			urlList = [];
-			tagList = [];
-			url2tagIndex = {};
-			tag2urlIndex = {};
+			////post process
+			//var urlList, tagList, url2tagIndex, tag2urlIndex, modelCollection;
+			//urlList = [];
+			//tagList = [];
+			//modelCollection = [];
 
-			for (var property in urls) {
-				urlList.push(property);
-			}
+			//for (var property in urls) {
+			//	var modelItem = {
+			//		url: property,
+			//		title: urls[property].title,
+			//		added: urls[property].added,
+			//		tags: []
+			//	};
 
-			for (var property in tags) {
-				tagList.push(property);
-			}
+			//	modelCollection.push(modelItem);
+			//}
 
-			url2tagIndex = urls;
-			tag2urlIndex = tags;
+			//for (var property in tags) {
+			//	tagList.push(property);
+			//}
 
-			callback(urlList, tagList, url2tagIndex, tag2urlIndex);
+			//console.log(modelCollection);
+			//callback(urlList, tagList, null, null, modelCollection);
 		});
 	};
 }]);

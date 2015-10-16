@@ -22,25 +22,38 @@
 
 <!--the ng-app directive is the main entry point for angularJS-->
 <body ng-app="MyModule" ng-controller="MyController" class="popup-container">
+	<input type="text" ng-model="model.url" class="form-control" placeholder="add url here" />
 
-	<input type="text" ng-model="model.title" class="form-control" placeholder="requesting title" />
-	<input type="text" ng-model="model.url" class="form-control" placeholder="requeesting url" />
-
+	<input type="text" ng-model="model.title" class="form-control" placeholder="add title here"/>
+	
 	<input type="text"
 		   class="form-control"
-		   ng-model="tagSelected"
+		   ng-model="tagInput"
 		   placeholder="add tag here"
-		   typeahead="tagItem for tagItem in tagList | filter:$viewValue"
+		   typeahead="tagItem for tagItem in tagList"
 		   typeahead-loading="true"
 		   my-auto-focus
 		   ng-keypress="inputKeyPress($event)" />
+	<!--//TODO make custom type ahead directive instead-->
 
 	<button type="button" class="btn btn-primary btn-xs" ng-repeat="tagItem in model.tags track by $index" ng-click="removeTag(tagItem)">{{tagItem}}</button>
 
-	<!--<button type="button" class="btn btn-default btn-xs">
+	<hr />
+
+	<button type="button" class="btn btn-primary btn-xs" ng-click="saveModel()">Save</button>
+	
+	<button type="button" class="btn btn-primary btn-xs" ng-click="deleteModel()">Delete</button>
+
+	<button type="button" class="btn btn-default btn-xs">
 		<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-	</button>-->
+	</button>
 
 	<hr />
+
+	<div ng-repeat="searchItem in searchResults track by $index">
+		<span>{{searchItem.title}}</span>
+		<span>{{searchItem.url}}</span>
+	</div>
+	
 </body>
 </html>

@@ -1,54 +1,63 @@
 'use strict';
 //define controllers
-angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$log', 'TabService', 'BookmarkService',
-function ($scope, $timeout, $log, tabService, bookmarkService) {
-	var ctrl = this;
-	$scope.model = {};
-	$scope.model.url = "";
-	$scope.model.title = "";
-	$scope.tagSelected = "";
+angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$log', 'TabService', 'BookmarkService', function ($scope, $timeout, $log, tabService, bookmarkService) {
+	var self = this;
+
+	$scope.model = {
+		url: null,
+		title: null,
+		tags: null
+	};
+
+	$scope.model.url = "requesting...";
+	$scope.model.title = "requesting...";
 	$scope.model.tags = [];
-	$scope.urlList = [];
+
+	$scope.tagInput = "";
+	
+	$scope.modelCollection = [];
+	$scope.searchResult = [];
+
+	$scope.urlIndex = {};
+	$scope.tagIndex = {};
 	$scope.tagList = [];
-	ctrl.url2tagIndex = {};
-	ctrl.tag2urlIndex = {};
 
-	this.loadModel = function (urlName) {
-		if (!urlName || !ctrl.url2tagIndex[urlName]) {
-			return;
-		}
-
-		$log.info(ctrl.url2tagIndex[urlName]);
-		$scope.model.tags = [];
-
-		for (var property in ctrl.url2tagIndex[urlName].tags) {
-			$scope.model.tags.push(property);
-		}
-
+	tabService.requestCurrentTabData(function (result) {
+		$scope.model.url = result.url;
+		$scope.model.title = result.title;
 		$scope.$digest();
-	}
+	});
 
-	this.saveModel = function () {
+	bookmarkService.requestData(function (urlIndex, tagIndex) {
+		$scope.urlIndex = urlIndex;
+		$scope.tagIndex = tagIndex;
 
-	}
+		//TODO merge data
+		for (var property in tagIndex) {
+			$scope.tagList.push(property);
+		}
+	});
 
 	$scope.inputKeyPress = function ($event) {
-		if ($event.keyCode === 13) {
-			//enter key was pressed
-			if (!$scope.tagSelected) {
+		if ($event.keyCode === 13 || $event.keyCode === 32) {
+			//space or enter key was pressed
+
+			if (!$scope.tagInput) {
 				return;
 			}
 
-			$scope.tagSelected = $scope.tagSelected.trim();
-			$scope.appendTag($scope.tagSelected);
-			$scope.tagSelected = "";
-		}
-	}
+			$scope.tagInput = $scope.tagInput.trim();
 
-	$scope.appendTag = function (tagName) {
-		if ($scope.modelTags.indexOf($scope.tagSelected) === -1) {
-			//add new tag if it was not found
-			$scope.modelTags.push($scope.tagSelected);
+			if ($scope.model.tags.indexOf($scope.tagInput) === -1) {
+				//add new tag if it was not found
+				$scope.model.tags.push($scope.tagInput);
+
+				$timeout(function () {
+					$scope.searchModel();
+				}, 0);
+			}
+
+			$scope.tagInput = "";
 		}
 	}
 
@@ -59,27 +68,44 @@ function ($scope, $timeout, $log, tabService, bookmarkService) {
 			return;
 		}
 
-		index = $scope.modelTags.indexOf(tagName);
+		index = $scope.model.tags.indexOf(tagName);
 
 		if (index === -1) {
 			return;
 		}
 
-		$scope.modelTags.splice(index, 1);
+		$scope.model.tags.splice(index, 1);
 	};
 
-	//-------------do work after definitions-------------------------
-	bookmarkService.requestUrlTagData(function (urls, tags, url2tagIndex, tag2urlIndex) {
-		$scope.urlList = urls;
-		$scope.tagList = tags;
-		ctrl.url2tagIndex = url2tagIndex;
-		ctrl.tag2urlIndex = tag2urlIndex;
+	$scope.searchModel = function () {
+		console.log("search model");
 
-		tabService.requestCurrentTabUrl(function (url, title) {
-			$scope.model.url = url;
-			$scope.model.title = title;
-			$scope.$digest();
-			ctrl.loadModel($scope.model.url);
-		});
-	});
+		$scope.searchResult = [];
+
+		//simple linear search O(n)
+		for (var i = 0; i < $scope.modelCollection.length; i++) {
+			var modelItem = $scope.modelCollection[i];
+			
+			$scope.searchResult.push(modelItem);
+		}
+
+		$scope.$digest();
+	};
+
+	$scope.loadModel = function () {
+		console.log("load model");
+	};
+
+	$scope.saveModel = function () {
+		console.log("save model");
+	};
+
+	$scope.deleteModel = function () {
+		console.log("delete model");
+	};
+
+	$scope.test = function (item) {
+		console.log("test");
+		console.log(item);
+	};
 }]);
