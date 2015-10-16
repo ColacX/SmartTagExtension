@@ -1,39 +1,63 @@
 'use strict';
 //define controllers
 angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$log', 'TabService', 'BookmarkService', function ($scope, $timeout, $log, tabService, bookmarkService) {
-	$scope.urlSelected = "requesting...";
-	$scope.tagSelected = "";
-	$scope.modelTags = [];
-	$scope.tagCollection = [];
+	var self = this;
 
-	tabService.requestCurrentTabUrl(function (result) {
-		$scope.urlSelected = result;
+	$scope.model = {
+		url: null,
+		title: null,
+		tags: null
+	};
+
+	$scope.model.url = "requesting...";
+	$scope.model.title = "requesting...";
+	$scope.model.tags = [];
+
+	$scope.tagInput = "";
+	
+	$scope.modelCollection = [];
+	$scope.searchResult = [];
+
+	$scope.urlIndex = {};
+	$scope.tagIndex = {};
+	$scope.tagList = [];
+
+	tabService.requestCurrentTabData(function (result) {
+		$scope.model.url = result.url;
+		$scope.model.title = result.title;
 		$scope.$digest();
 	});
 
-	bookmarkService.requestUrlTagData(function (urls, tags, url2tagIndex, tag2urlIndex) {
-		$scope.tagCollection = tags;
+	bookmarkService.requestData(function (urlIndex, tagIndex) {
+		$scope.urlIndex = urlIndex;
+		$scope.tagIndex = tagIndex;
+
+		//TODO merge data
+		for (var property in tagIndex) {
+			$scope.tagList.push(property);
+		}
 	});
 
-	this.loadModel = function (urlName) {
-
-	}
-
 	$scope.inputKeyPress = function ($event) {
-		if ($event.keyCode === 13) {
-			//enter key was pressed
-			if (!$scope.tagSelected) {
+		if ($event.keyCode === 13 || $event.keyCode === 32) {
+			//space or enter key was pressed
+
+			if (!$scope.tagInput) {
 				return;
 			}
 
-			$scope.tagSelected = $scope.tagSelected.trim();
+			$scope.tagInput = $scope.tagInput.trim();
 
-			if ($scope.modelTags.indexOf($scope.tagSelected) === -1) {
+			if ($scope.model.tags.indexOf($scope.tagInput) === -1) {
 				//add new tag if it was not found
-				$scope.modelTags.push($scope.tagSelected);
+				$scope.model.tags.push($scope.tagInput);
+
+				$timeout(function () {
+					$scope.searchModel();
+				}, 0);
 			}
 
-			$scope.tagSelected = "";
+			$scope.tagInput = "";
 		}
 	}
 
@@ -44,12 +68,44 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 			return;
 		}
 
-		index = $scope.modelTags.indexOf(tagName);
+		index = $scope.model.tags.indexOf(tagName);
 
 		if (index === -1) {
 			return;
 		}
 
-		$scope.modelTags.splice(index, 1);
+		$scope.model.tags.splice(index, 1);
+	};
+
+	$scope.searchModel = function () {
+		console.log("search model");
+
+		$scope.searchResult = [];
+
+		//simple linear search O(n)
+		for (var i = 0; i < $scope.modelCollection.length; i++) {
+			var modelItem = $scope.modelCollection[i];
+			
+			$scope.searchResult.push(modelItem);
+		}
+
+		$scope.$digest();
+	};
+
+	$scope.loadModel = function () {
+		console.log("load model");
+	};
+
+	$scope.saveModel = function () {
+		console.log("save model");
+	};
+
+	$scope.deleteModel = function () {
+		console.log("delete model");
+	};
+
+	$scope.test = function (item) {
+		console.log("test");
+		console.log(item);
 	};
 }]);

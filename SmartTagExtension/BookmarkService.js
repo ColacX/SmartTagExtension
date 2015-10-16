@@ -2,7 +2,7 @@
 
 //service that interacts with the browser bookmarks
 angular.module('MyModule').service('BookmarkService', ['$log', function ($log) {
-	this.requestUrlTagData = function (callback) {
+	this.requestData = function (callback) {
 
 		if (!chrome.bookmarks) {
 			$log.error("chrome.bookmarks api is only available when running as a browser extension");
@@ -48,7 +48,8 @@ angular.module('MyModule').service('BookmarkService', ['$log', function ($log) {
 					//create a new urlItem if urlName was unknown
 					urls[urlName] = {
 						added: node.dateAdded,
-						title: node.title
+						title: node.title,
+						tags: {}
 					};
 					return urlName;
 				}
@@ -79,6 +80,9 @@ angular.module('MyModule').service('BookmarkService', ['$log', function ($log) {
 					var tagItem = tags[tagName];
 					tagItem[urlName] = null;
 
+					//map url to tag
+					urls[urlName].tags[tagName] = null;
+
 					//go back up the tree so it can receive the next tag
 					return urlName;
 				}
@@ -102,17 +106,31 @@ angular.module('MyModule').service('BookmarkService', ['$log', function ($log) {
 
 			$log.info(urls);
 			$log.info(tags);
+			callback(urls, tags);
 
-			//post process
-			var urlList, tagList, url2tagIndex, tag2urlIndex;
-			urlList = [];
-			tagList = [];
+			////post process
+			//var urlList, tagList, url2tagIndex, tag2urlIndex, modelCollection;
+			//urlList = [];
+			//tagList = [];
+			//modelCollection = [];
 
-			for (var property in tags) {
-				tagList.push(property);
-			}
+			//for (var property in urls) {
+			//	var modelItem = {
+			//		url: property,
+			//		title: urls[property].title,
+			//		added: urls[property].added,
+			//		tags: []
+			//	};
 
-			callback(urlList, tagList);
+			//	modelCollection.push(modelItem);
+			//}
+
+			//for (var property in tags) {
+			//	tagList.push(property);
+			//}
+
+			//console.log(modelCollection);
+			//callback(urlList, tagList, null, null, modelCollection);
 		});
 	};
 }]);
