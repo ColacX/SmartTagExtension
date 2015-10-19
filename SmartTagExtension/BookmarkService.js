@@ -20,12 +20,13 @@ angular.module('MyModule').service('BookmarkService', ['$log', function ($log) {
 				$log.warn("no bookmarks found");
 			}
 
-			var urls, tags, findUnknown, progressCount;
-			urls = {};
-			tags = {};
-			progressCount = 0;
+			var urlSet, tagSet, urlTagMap, tagUrlMap, findUnknown;
+			urlSet = {};
+			tagSet = {};
+			urlTagMap = {};
+			tagUrlMap = {};
 
-			//the algorithm used is not a simple DFS nor BFS, it searches the tree for unknown urls and avoids revisiting nodes that cannot have more to find
+			//the algorithm used is not a simple DFS nor BFS, it searches the tree for unknown urlSet and avoids revisiting nodes that cannot have more to find
 			//the algorithm has O(N) time-complexity, actually it is probably closer to O(2*N + log n)
 			findUnknown = function (node) {
 				if (!node || node.dontVisit) {
@@ -37,19 +38,18 @@ angular.module('MyModule').service('BookmarkService', ['$log', function ($log) {
 					//found a leaf node
 					//$log.debug(node);
 					node.dontVisit = true;
-					progressCount++;
 
 					var urlName = node.url;
-					if (!urlName || urlName == "" || urls[urlName]) {
+					if (!urlName || urlName == "" || urlSet[urlName]) {
 						//return not found if the urlName is bad or already exist
 						return null;
 					}
 
 					//create a new urlItem if urlName was unknown
-					urls[urlName] = {
+					urlSet[urlName] = {
+						//url object data
 						added: node.dateAdded,
-						title: node.title,
-						tags: {}
+						title: node.title
 					};
 					return urlName;
 				}
@@ -71,17 +71,26 @@ angular.module('MyModule').service('BookmarkService', ['$log', function ($log) {
 						return urlName;
 					}
 
-					if (!tags[tagName]) {
+					if (!tagSet[tagName]) {
 						//create new tag item if it does not exist yet
-						tags[tagName] = {};
+						tagSet[tagName] = {
+							//tag object data
+						};
 					}
 
 					//map the tagName to the urlName
-					var tagItem = tags[tagName];
-					tagItem[urlName] = null;
+					if (!tagUrlMap[tagName]) {
+						//create new if mapping does not exist
+						tagUrlMap[tagName] = {};
+					}
+					tagUrlMap[tagName][urlName] = true;
 
 					//map url to tag
-					urls[urlName].tags[tagName] = null;
+					if (!urlTagMap[urlName]) {
+						//create new if mapping does not exist
+						urlTagMap[urlName] = {};
+					}
+					urlTagMap[urlName][tagName] = true;
 
 					//go back up the tree so it can receive the next tag
 					return urlName;
@@ -104,33 +113,11 @@ angular.module('MyModule').service('BookmarkService', ['$log', function ($log) {
 				}
 			}
 
-			$log.info(urls);
-			$log.info(tags);
-			callback(urls, tags);
-
-			////post process
-			//var urlList, tagList, url2tagIndex, tag2urlIndex, modelCollection;
-			//urlList = [];
-			//tagList = [];
-			//modelCollection = [];
-
-			//for (var property in urls) {
-			//	var modelItem = {
-			//		url: property,
-			//		title: urls[property].title,
-			//		added: urls[property].added,
-			//		tags: []
-			//	};
-
-			//	modelCollection.push(modelItem);
-			//}
-
-			//for (var property in tags) {
-			//	tagList.push(property);
-			//}
-
-			//console.log(modelCollection);
-			//callback(urlList, tagList, null, null, modelCollection);
+			$log.info(urlSet);
+			$log.info(tagSet);
+			$log.info(urlTagMap);
+			$log.info(tagUrlMap);
+			callback(urlSet, tagSet, urlTagMap, tagUrlMap);
 		});
 	};
 }]);

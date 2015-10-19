@@ -4,23 +4,18 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 	var self = this;
 
 	$scope.model = {
-		url: null,
-		title: null,
-		tags: null
+		url: "requesting...",
+		title: "requesting...",
+		tags: []
 	};
 
-	$scope.model.url = "requesting...";
-	$scope.model.title = "requesting...";
-	$scope.model.tags = [];
-
 	$scope.tagInput = "";
-	
-	$scope.modelCollection = [];
-	$scope.searchResult = [];
-
-	$scope.urlIndex = {};
-	$scope.tagIndex = {};
+	$scope.urlSet = {};
+	$scope.tagSet = {};
+	$scope.urlTagMap = {};
+	$scope.tagUrlMap = {};
 	$scope.tagList = [];
+	$scope.searchResult = [];
 
 	tabService.requestCurrentTabData(function (result) {
 		$scope.model.url = result.url;
@@ -28,14 +23,17 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 		$scope.$digest();
 	});
 
-	bookmarkService.requestData(function (urlIndex, tagIndex) {
-		$scope.urlIndex = urlIndex;
-		$scope.tagIndex = tagIndex;
+	bookmarkService.requestData(function (urlSet, tagSet, urlTagMap, tagUrlMap) {
+		$scope.urlSet = urlSet;
+		$scope.tagSet = tagSet;
+		$scope.urlTagMap = urlTagMap;
+		$scope.tagUrlMap = tagUrlMap;
 
 		//TODO merge data
-		for (var property in tagIndex) {
+		for (var property in tagSet) {
 			$scope.tagList.push(property);
 		}
+
 	});
 
 	$scope.inputKeyPress = function ($event) {
@@ -75,7 +73,27 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 		}
 
 		$scope.model.tags.splice(index, 1);
+		
+		$timeout(function () {
+			$scope.searchModel();
+		}, 0);
 	};
+
+	$scope.urlHasAllTags = function (urlName) {
+		if (!$scope.model.tags || !$scope.model.tags.length) {
+			return false;
+		}
+
+		for (var i = 0; i < $scope.model.tags.length; i++) {
+			var modelTagName = $scope.model.tags[i];
+
+			if (!$scope.urlTagMap[urlName][modelTagName]) {
+				return false;
+			}
+		}
+
+		return true;
+	}
 
 	$scope.searchModel = function () {
 		console.log("search model");
@@ -83,9 +101,18 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 		$scope.searchResult = [];
 
 		//simple linear search O(n)
-		for (var i = 0; i < $scope.modelCollection.length; i++) {
-			var modelItem = $scope.modelCollection[i];
-			
+		for (var property in $scope.urlSet) {
+			var urlName = property;
+
+			if (!$scope.urlHasAllTags(urlName)) {
+				continue;
+			}
+
+			var modelItem = {
+				url: urlName,
+				title: $scope.urlSet[urlName].title,
+			};
+
 			$scope.searchResult.push(modelItem);
 		}
 
@@ -108,4 +135,8 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 		console.log("test");
 		console.log(item);
 	};
+
+	$scope.openTab = function (urlName) {
+		chrome.tabs.create({ url: urlName });
+	}
 }]);

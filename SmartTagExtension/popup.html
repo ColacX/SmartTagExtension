@@ -30,7 +30,7 @@
 		   class="form-control"
 		   ng-model="tagInput"
 		   placeholder="add tag here"
-		   typeahead="tagItem for tagItem in tagList"
+		   typeahead="tagItem for tagItem in tagList | filter:$viewValue"
 		   typeahead-loading="true"
 		   my-auto-focus
 		   ng-keypress="inputKeyPress($event)" />
@@ -50,9 +50,8 @@
 
 	<hr />
 
-	<div ng-repeat="searchItem in searchResults track by $index">
-		<span>{{searchItem.title}}</span>
-		<span>{{searchItem.url}}</span>
+	<div ng-repeat="searchItem in searchResult track by $index">
+		<a href="{{searchItem.url}}" ng-click="openTab(searchItem.url)">{{searchItem.title}}</a>
 	</div>
 	
 </body>
