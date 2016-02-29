@@ -12,6 +12,7 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 
 	$scope.folderList = [];
 	$scope.searchResult = [];
+	$scope.status = "ready";
 
 	tabService.requestCurrentTabData(function (result) {
 		$scope.model.url = result.url;
@@ -46,6 +47,7 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 
 	$scope.saveModel = function () {
 		$log.info("save model...");
+		$scope.status = "processing";
 
 		if (!$scope.model || !$scope.model.url || !$scope.model.folder) {
 			return;
@@ -64,10 +66,12 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 					}
 				).then(function(){
 					$log.info("success");
+					$scope.status = "success";
 				})
 				.catch(function (reason) {
 					$log.error("failed");
 					$log.error(reason);
+					$scope.status = "failed";
 				});
 			}
 			else {
@@ -80,35 +84,40 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 					url: $scope.model.url
 				}).then(function () {
 					$log.info("success");
+					$scope.status = "success";
 				})
 				.catch(function (reason) {
 					$log.error("failed");
 					$log.error(reason);
+					$scope.status = "failed";
 				});
 			}
 		}
 		else {
 			console.log("save new bookmark to new folder");
+			//prompt save to new folder?
+			$scope.status = "success";
 		}
 	};
 
-	//$scope.deleteModel = function () {
-	//	console.log("delete model");
-	//};
+	$scope.deleteModel = function () {
+		console.log("delete model");
+		$scope.status = "processing";
 
-	//$scope.test = function (item) {
-	//	console.log("test");
-	//	console.log(item);
-	//};
+		bookmarkService.removeBookmark(
+			$scope.model.currentBookmark.id
+		).then(function () {
+			$log.info("success");
+			$scope.status = "success";
+		})
+		.catch(function (reason) {
+			$log.error("failed");
+			$log.error(reason);
+			$scope.status = "failed";
+		});
+	};
 
 	$scope.openTab = function (urlName) {
 		chrome.tabs.create({ url: urlName });
 	}
-
-	//storageService.loadAll(function (result) {
-	//	$scope.urlSet = result.urlSet;
-	//	$scope.tagSet = result.tagSet;
-	//	$scope.urlTagMap = result.urlTagMap;
-	//	$scope.tagUrlMap = result.tagUrlMap;
-	//});
 }]);

@@ -2,9 +2,7 @@ html{
 	overflow:visible;
 }
 
-.popup-container {
-	padding: 5px 5px 5px 5px;
-	min-width: 600px;
-	min-height: 600px;
+.alert{
+	margin: 0px 0px 0px 0px;
 }
 
