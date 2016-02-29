@@ -7,7 +7,6 @@ angular.module('MyModule').service('BookmarkService', ['$log', '$q', function ($
 	}
 
 	this.getData = function (targetUrl) {
-		$log.info("getData");
 		$log.info(targetUrl);
 
 		var deferred, folderList, currentBookmark, probe;
@@ -55,6 +54,27 @@ angular.module('MyModule').service('BookmarkService', ['$log', '$q', function ($
 				folderList: folderList,
 				currentBookmark: currentBookmark
 			});
+		});
+
+		return deferred.promise;
+	};
+
+	this.getFolderContent = function (bookmarkId) {
+		$log.info("getFolderContent");
+		$log.info(bookmarkId);
+		var deferred;
+		deferred = $q.defer();
+
+		chrome.bookmarks.getSubTree(bookmarkId, function (result) {
+			$log.warn(result);
+
+			if (!result || result.length != 1 || !result[0].children) {
+				deferred.resolve([]);
+				return;
+			}
+			else {
+				deferred.resolve(result[0].children);
+			}
 		});
 
 		return deferred.promise;

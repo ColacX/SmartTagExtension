@@ -1,6 +1,6 @@
 'use strict';
 //define controllers
-angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$log', 'TabService', 'BookmarkService', 'StorageService', function ($scope, $timeout, $log, tabService, bookmarkService, storageService) {
+angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$log', '$q', 'TabService', 'BookmarkService', 'StorageService', function ($scope, $timeout, $log, $q, tabService, bookmarkService, storageService) {
 	var self = this;
 
 	$scope.model = {
@@ -15,13 +15,14 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 	$scope.status = "ready";
 
 	tabService.requestCurrentTabData(function (result) {
+		$scope.status = "processing";
 		$scope.model.url = result.url;
 		$scope.model.title = result.title;
 		$scope.$digest();
 
 		bookmarkService.getData($scope.model.url)
 		.then(function (result) {
-			$log.info("success");
+			
 			$log.info(result);
 			$scope.folderList = result.folderList;
 			$scope.model.folder = "";
@@ -40,8 +41,23 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 				}
 			}
 		})
+		.then(function () {
+			if (!$scope.model.folder && !$scope.model.folder.id) {
+				return $q.when(null); //returns an auto resolved promise
+			}
+
+			return bookmarkService.getFolderContent($scope.model.folder.id);
+		})
+		.then(function (result) {
+			$log.warn(result);
+			$scope.searchResult = result;
+		})
+		.then(function () {
+			$scope.status = "ready";
+		})
 		.catch(function (reason) {
 			$log.error(reason);
+			$scope.status = "failed";
 		});
 	});
 

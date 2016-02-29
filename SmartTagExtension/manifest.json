@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "CX Smart Bookmark Tag Chrome Extension",
-  "description": "This extension is meant to replace the built-in bookmark management system in Chrome. Hopefully someone working at Google will one day will make something even better.",
+  "name": "CX Bookmark Helper",
+  "description": "This extension is meant to improve upon the built-in bookmark management system in Chrome. Hopefully someone working at Google will one day make something even better.",
   "version": "0.1",
 
   "browser_action": {
