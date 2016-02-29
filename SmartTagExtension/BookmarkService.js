@@ -1,7 +1,160 @@
 'use strict';
 
 //service that interacts with the browser bookmarks
-angular.module('MyModule').service('BookmarkService', ['$log', function ($log) {
+angular.module('MyModule').service('BookmarkService', ['$log', '$q', function ($log, $q) {
+	if (!chrome.bookmarks) {
+		throw "chrome.bookmarks api is only available when running as a browser extension";
+	}
+
+	this.getData = function (targetUrl) {
+		$log.info("getData");
+		$log.info(targetUrl);
+
+		var deferred, folderList, currentBookmark, probe;
+		deferred = $q.defer();
+		folderList = [];
+		currentBookmark = null;
+
+		probe = function (node) {
+
+			if (node.url) {
+				//leaf node
+				if (node.url == targetUrl) {
+					currentBookmark = node;
+				}
+
+				return;
+			}
+
+			//branch node
+			if (node.title) {
+				folderList.push({
+					id: node.id,
+					title: node.title
+				});
+			}
+
+			//recurse over all children
+			for (var i = 0; i < node.children.length; i++) {
+				probe(node.children[i]);
+			}
+		};
+
+		chrome.bookmarks.getTree(function (result) {
+			if (!result || !result.length || result.length <= 0) {
+				$log.warn("no bookmarks found");
+			}
+
+			$log.warn(result);
+
+			for (var i = 0; i < result.length; i++) {
+				probe(result[i]);
+			}
+
+			deferred.resolve({
+				folderList: folderList,
+				currentBookmark: currentBookmark
+			});
+		});
+
+		return deferred.promise;
+	};
+
+	this.createBookmark = function (bookmarkNode) {
+		var deferred;
+		deferred = $q.defer();
+
+		chrome.bookmarks.create(bookmarkNode, function (result) {
+			$log.warn(result);
+			deferred.resolve();
+		});
+
+		return deferred.promise;
+	};
+
+	this.moveBookmark = function (bookmarkId, destination) {
+		var deferred;
+		deferred = $q.defer();
+
+		chrome.bookmarks.move(bookmarkId, destination, function (result) {
+			$log.warn(result);
+			deferred.resolve();
+		});
+
+		return deferred.promise;
+	};
+
+	this.requestData2 = function () {
+		$log.info("requestData2");
+
+		var deferred, probe, folders, urls;
+		deferred = $q.defer();
+		folders = {};
+		urls = {};
+		probe = function (node) {
+			if (node.url) {
+				//leaf node
+				if (!urls[node.url]) {
+					urls[node.url] = [];
+				}
+
+				urls[node.url].push({
+					bookmarkId: node.id,
+					bookmarkParentId: node.parentId,
+					urlTitle: node.title,
+					dateAdded: node.dateAdded
+				});
+				return;
+			}
+
+			//branch node
+			if (node.title) {
+				//add only folders with title
+
+				if (!folders[node.title]) {
+					folders[node.title] = [];
+				}
+
+				folders[node.title].push({
+					bookmarkId: node.id,
+					bookmarkParentId: node.parentId,
+					dateAdded: node.dateAdded
+				});
+			}
+
+			//recurse over all children
+			for (var i = 0; i < node.children.length; i++) {
+				probe(node.children[i]);
+			}
+		};
+
+		if (!chrome.bookmarks) {
+			throw "chrome.bookmarks api is only available when running as a browser extension";
+			//$log.error(m);
+			//return;
+			//throw m;
+		}
+
+		chrome.bookmarks.getTree(function (result) {
+			if (!result || !result.length || result.length < 1) {
+				$log.warn("no bookmarks found");
+			}
+
+			$log.warn(result);
+
+			for (var i = 0; i < result.length; i++) {
+				probe(result[i]);
+			}
+
+			deferred.resolve({
+				folders: folders,
+				urls: urls
+			});
+		});
+
+		return deferred.promise;
+	}
+
 	this.requestData = function (callback) {
 
 		if (!chrome.bookmarks) {
@@ -9,12 +162,8 @@ angular.module('MyModule').service('BookmarkService', ['$log', function ($log) {
 			return callback(null, null);
 		}
 
-		//if (!window.confirm("are you sure?")) {
-		//	return;
-		//}
-
 		chrome.bookmarks.getTree(function (result) {
-			$log.info(result);
+			//$log.info(result);
 
 			if (!result || !result.length || result.length < 1) {
 				$log.warn("no bookmarks found");
@@ -113,10 +262,10 @@ angular.module('MyModule').service('BookmarkService', ['$log', function ($log) {
 				}
 			}
 
-			$log.info(urlSet);
-			$log.info(tagSet);
-			$log.info(urlTagMap);
-			$log.info(tagUrlMap);
+			//$log.info(urlSet);
+			//$log.info(tagSet);
+			//$log.info(urlTagMap);
+			//$log.info(tagUrlMap);
 			callback(urlSet, tagSet, urlTagMap, tagUrlMap);
 		});
 	};

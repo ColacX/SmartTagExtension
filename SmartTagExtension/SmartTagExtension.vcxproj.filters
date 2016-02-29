@@ -8,12 +8,6 @@
       <Filter>binary</Filter>
     </Image>
     <Image Include="settings24.png" />
-    <Image Include="gear-32-32.png">
-      <Filter>binary</Filter>
-    </Image>
-    <Image Include="cross-16-16.png">
-      <Filter>binary</Filter>
-    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="popup.html">
@@ -2450,7 +2444,6 @@
     <None Include="Content\bootstrap.css">
       <Filter>Content</Filter>
     </None>
-    <None Include="customTemplate.html" />
     <None Include="StorageService.js" />
   </ItemGroup>
   <ItemGroup>

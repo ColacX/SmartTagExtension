@@ -1,142 +1,114 @@
 'use strict';
 //define controllers
-angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$log', 'TabService', 'BookmarkService', function ($scope, $timeout, $log, tabService, bookmarkService) {
+angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$log', 'TabService', 'BookmarkService', 'StorageService', function ($scope, $timeout, $log, tabService, bookmarkService, storageService) {
 	var self = this;
 
 	$scope.model = {
 		url: "requesting...",
 		title: "requesting...",
-		tags: []
+		folder: "requesting...",
+		currentBookmark: null
 	};
 
-	$scope.tagInput = "";
-	$scope.urlSet = {};
-	$scope.tagSet = {};
-	$scope.urlTagMap = {};
-	$scope.tagUrlMap = {};
-	$scope.tagList = [];
+	$scope.folderList = [];
 	$scope.searchResult = [];
 
 	tabService.requestCurrentTabData(function (result) {
 		$scope.model.url = result.url;
 		$scope.model.title = result.title;
 		$scope.$digest();
+
+		bookmarkService.getData($scope.model.url)
+		.then(function (result) {
+			$log.info("success");
+			$log.info(result);
+			$scope.folderList = result.folderList;
+			$scope.model.folder = "";
+			$scope.model.currentBookmark = result.currentBookmark;
+
+			if ($scope.model.currentBookmark) {
+				//then fetch the folder title
+				for (var i = 0; i < $scope.folderList.length; i++) {
+					if ($scope.folderList[i].id == $scope.model.currentBookmark.parentId) {
+						$scope.model.folder = {
+							id: $scope.folderList[i].id,
+							title: $scope.folderList[i].title
+						};
+						break;
+					}
+				}
+			}
+		})
+		.catch(function (reason) {
+			$log.error(reason);
+		});
 	});
-
-	bookmarkService.requestData(function (urlSet, tagSet, urlTagMap, tagUrlMap) {
-		$scope.urlSet = urlSet;
-		$scope.tagSet = tagSet;
-		$scope.urlTagMap = urlTagMap;
-		$scope.tagUrlMap = tagUrlMap;
-
-		//TODO merge data
-		for (var property in tagSet) {
-			$scope.tagList.push(property);
-		}
-
-	});
-
-	$scope.inputKeyPress = function ($event) {
-		if ($event.keyCode === 13 || $event.keyCode === 32) {
-			//space or enter key was pressed
-
-			if (!$scope.tagInput) {
-				return;
-			}
-
-			$scope.tagInput = $scope.tagInput.trim();
-
-			if ($scope.model.tags.indexOf($scope.tagInput) === -1) {
-				//add new tag if it was not found
-				$scope.model.tags.push($scope.tagInput);
-
-				$timeout(function () {
-					$scope.searchModel();
-				}, 0);
-			}
-
-			$scope.tagInput = "";
-		}
-	}
-
-	$scope.removeTag = function (tagName) {
-		var index;
-
-		if (!tagName) {
-			return;
-		}
-
-		index = $scope.model.tags.indexOf(tagName);
-
-		if (index === -1) {
-			return;
-		}
-
-		$scope.model.tags.splice(index, 1);
-		
-		$timeout(function () {
-			$scope.searchModel();
-		}, 0);
-	};
-
-	$scope.urlHasAllTags = function (urlName) {
-		if (!$scope.model.tags || !$scope.model.tags.length) {
-			return false;
-		}
-
-		for (var i = 0; i < $scope.model.tags.length; i++) {
-			var modelTagName = $scope.model.tags[i];
-
-			if (!$scope.urlTagMap[urlName][modelTagName]) {
-				return false;
-			}
-		}
-
-		return true;
-	}
-
-	$scope.searchModel = function () {
-		console.log("search model");
-
-		$scope.searchResult = [];
-
-		//simple linear search O(n)
-		for (var property in $scope.urlSet) {
-			var urlName = property;
-
-			if (!$scope.urlHasAllTags(urlName)) {
-				continue;
-			}
-
-			var modelItem = {
-				url: urlName,
-				title: $scope.urlSet[urlName].title,
-			};
-
-			$scope.searchResult.push(modelItem);
-		}
-
-		$scope.$digest();
-	};
-
-	$scope.loadModel = function () {
-		console.log("load model");
-	};
 
 	$scope.saveModel = function () {
-		console.log("save model");
+		$log.info("save model...");
+
+		if (!$scope.model || !$scope.model.url || !$scope.model.folder) {
+			return;
+		}
+
+		if ($scope.model.folder.id) {
+
+			if ($scope.model.currentBookmark) {
+				$log.info("move new bookmark to existing folder...");
+
+				bookmarkService.moveBookmark(
+					$scope.model.currentBookmark.id,
+					{
+						parentId: $scope.model.folder.id,
+						index: 0
+					}
+				).then(function(){
+					$log.info("success");
+				})
+				.catch(function (reason) {
+					$log.error("failed");
+					$log.error(reason);
+				});
+			}
+			else {
+				$log.info("save new bookmark to existing folder...");
+
+				bookmarkService.createBookmark({
+					parentId: $scope.model.folder.id,
+					index: 0,
+					title: $scope.model.title,
+					url: $scope.model.url
+				}).then(function () {
+					$log.info("success");
+				})
+				.catch(function (reason) {
+					$log.error("failed");
+					$log.error(reason);
+				});
+			}
+		}
+		else {
+			console.log("save new bookmark to new folder");
+		}
 	};
 
-	$scope.deleteModel = function () {
-		console.log("delete model");
-	};
+	//$scope.deleteModel = function () {
+	//	console.log("delete model");
+	//};
 
-	$scope.test = function (item) {
-		console.log("test");
-		console.log(item);
-	};
+	//$scope.test = function (item) {
+	//	console.log("test");
+	//	console.log(item);
+	//};
 
 	$scope.openTab = function (urlName) {
 		chrome.tabs.create({ url: urlName });
 	}
+
+	//storageService.loadAll(function (result) {
+	//	$scope.urlSet = result.urlSet;
+	//	$scope.tagSet = result.tagSet;
+	//	$scope.urlTagMap = result.urlTagMap;
+	//	$scope.tagUrlMap = result.tagUrlMap;
+	//});
 }]);

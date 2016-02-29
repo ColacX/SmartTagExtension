@@ -17,6 +17,7 @@
 
 	<script src="MyModule.js"></script>
 	<script src="BookmarkService.js"></script>
+	<script src="StorageService.js"></script>
 	<script src="popup.js"></script>
 </head>
 
@@ -25,15 +26,24 @@
 	<input type="text" ng-model="model.url" class="form-control" placeholder="add url here" />
 
 	<input type="text" ng-model="model.title" class="form-control" placeholder="add title here"/>
-	
+
 	<input type="text"
+		   class="form-control"
+		   ng-model="model.folder"
+		   placeholder="choose folder here"
+		   typeahead="folderItem as folderItem.title for folderItem in folderList | filter:{title:$viewValue} | limitTo:5"
+		   typeahead-loading="true"
+		   typeahead-no-results="noResults"
+		   my-auto-focus/>
+	
+	<!--<input type="text"
 		   class="form-control"
 		   ng-model="tagInput"
 		   placeholder="add tag here"
 		   typeahead="tagItem for tagItem in tagList | filter:$viewValue"
 		   typeahead-loading="true"
 		   my-auto-focus
-		   ng-keypress="inputKeyPress($event)" />
+		   ng-keypress="inputKeyPress($event)" />-->
 	<!--//TODO make custom type ahead directive instead-->
 
 	<button type="button" class="btn btn-primary btn-xs" ng-repeat="tagItem in model.tags track by $index" ng-click="removeTag(tagItem)">{{tagItem}}</button>
@@ -41,6 +51,8 @@
 	<hr />
 
 	<button type="button" class="btn btn-primary btn-xs" ng-click="saveModel()">Save</button>
+
+	<button type="button" class="btn btn-primary btn-xs" ng-click="loadModel()">Load</button>
 	
 	<button type="button" class="btn btn-primary btn-xs" ng-click="deleteModel()">Delete</button>
 

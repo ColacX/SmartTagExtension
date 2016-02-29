@@ -64,8 +64,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Image Include="cross-16-16.png" />
-    <Image Include="gear-32-32.png" />
     <Image Include="icon.png" />
     <Image Include="icon128.png" />
     <Image Include="settings24.png" />
@@ -80,7 +78,6 @@
     <None Include="Content\bootstrap.css.map" />
     <None Include="Content\bootstrap.min.css" />
     <None Include="Content\ui-bootstrap-csp.css" />
-    <None Include="customTemplate.html" />
     <None Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="fonts\glyphicons-halflings-regular.svg" />
     <None Include="fonts\glyphicons-halflings-regular.woff" />
