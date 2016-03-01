@@ -59,9 +59,9 @@
 			   typeahead-on-select="folderChange()"
 			   my-auto-focus
 			   ng-keypress="inputKeyPress($event)" />
-		
-		<hr />
 
+		<br />
+		
 		<div ng-repeat="searchItem in searchResult track by $index">
 			<a href="{{searchItem.url}}" ng-click="openTab(searchItem.url)" title="{{searchItem.url}}">{{searchItem.title}}</a>
 		</div>

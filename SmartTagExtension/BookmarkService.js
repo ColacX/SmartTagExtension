@@ -68,7 +68,14 @@ angular.module('MyModule').service('BookmarkService', ['$log', '$q', function ($
 				return;
 			}
 			else {
-				deferred.resolve(result[0].children);
+				var list = [];
+				for (var i = 0; i < result[0].children.length; i++) {
+					if (result[0].children[i].url) {
+						list.push(result[0].children[i]);
+					}
+				}
+
+				deferred.resolve(list);
 			}
 		});
 
