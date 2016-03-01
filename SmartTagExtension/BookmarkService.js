@@ -3,12 +3,11 @@
 //service that interacts with the browser bookmarks
 angular.module('MyModule').service('BookmarkService', ['$log', '$q', function ($log, $q) {
 	if (!chrome.bookmarks) {
+		$log.error("chrome.bookmarks api is only available when running as a browser extension");
 		throw "chrome.bookmarks api is only available when running as a browser extension";
 	}
 
 	this.getData = function (targetUrl) {
-		$log.info(targetUrl);
-
 		var deferred, folderList, currentBookmark, probe;
 		deferred = $q.defer();
 		folderList = [];
@@ -44,8 +43,6 @@ angular.module('MyModule').service('BookmarkService', ['$log', '$q', function ($
 				$log.warn("no bookmarks found");
 			}
 
-			$log.warn(result);
-
 			for (var i = 0; i < result.length; i++) {
 				probe(result[i]);
 			}
@@ -60,8 +57,6 @@ angular.module('MyModule').service('BookmarkService', ['$log', '$q', function ($
 	};
 
 	this.getFolderContent = function (bookmarkId) {
-		$log.info("getFolderContent");
-		$log.info(bookmarkId);
 		var deferred;
 		deferred = $q.defer();
 

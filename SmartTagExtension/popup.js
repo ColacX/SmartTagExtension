@@ -23,7 +23,6 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 		bookmarkService.getData($scope.model.url)
 		.then(function (result) {
 			
-			$log.info(result);
 			$scope.folderList = result.folderList;
 			$scope.model.folder = "";
 			$scope.model.currentBookmark = result.currentBookmark;
@@ -49,7 +48,6 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 			return bookmarkService.getFolderContent($scope.model.folder.id);
 		})
 		.then(function (result) {
-			$log.warn(result);
 			$scope.searchResult = result;
 		})
 		.then(function () {
@@ -62,7 +60,7 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 	});
 
 	$scope.saveModel = function () {
-		$log.info("save model...");
+		$log.debug("save model");
 		$scope.status = "processing";
 
 		if (!$scope.model || !$scope.model.url || !$scope.model.folder) {
@@ -72,7 +70,7 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 		if ($scope.model.folder.id) {
 
 			if ($scope.model.currentBookmark) {
-				$log.info("move new bookmark to existing folder...");
+				$log.debug("move new bookmark to existing folder...");
 
 				bookmarkService.moveBookmark(
 					$scope.model.currentBookmark.id,
@@ -81,17 +79,15 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 						index: 0
 					}
 				).then(function(){
-					$log.info("success");
 					$scope.status = "success";
 				})
 				.catch(function (reason) {
-					$log.error("failed");
 					$log.error(reason);
 					$scope.status = "failed";
 				});
 			}
 			else {
-				$log.info("save new bookmark to existing folder...");
+				$log.debug("save new bookmark to existing folder...");
 
 				bookmarkService.createBookmark({
 					parentId: $scope.model.folder.id,
@@ -99,11 +95,9 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 					title: $scope.model.title,
 					url: $scope.model.url
 				}).then(function () {
-					$log.info("success");
 					$scope.status = "success";
 				})
 				.catch(function (reason) {
-					$log.error("failed");
 					$log.error(reason);
 					$scope.status = "failed";
 				});
@@ -116,7 +110,6 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 				index: 0,
 				title: $scope.model.folder,
 			}).then(function (result) {
-				$log.warn(result);
 				return bookmarkService.createBookmark({
 					parentId: result.id,
 					index: 0,
@@ -124,11 +117,9 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 					url: $scope.model.url
 				});
 			}).then(function (result) {
-				$log.warn(result);
 				$scope.status = "success";
 			})
 			.catch(function (reason) {
-				$log.error("failed");
 				$log.error(reason);
 				$scope.status = "failed";
 			});
@@ -136,23 +127,46 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 	};
 
 	$scope.deleteModel = function () {
-		console.log("delete model");
+		$log.debug("delete model");
 		$scope.status = "processing";
 
 		bookmarkService.removeBookmark(
 			$scope.model.currentBookmark.id
 		).then(function () {
-			$log.info("success");
 			$scope.status = "success";
 		})
 		.catch(function (reason) {
-			$log.error("failed");
 			$log.error(reason);
 			$scope.status = "failed";
 		});
 	};
 
 	$scope.openTab = function (urlName) {
+		$log.debug("openTab");
 		chrome.tabs.create({ url: urlName });
+	}
+
+	$scope.inputKeyPress = function ($event) {
+		$log.debug(event);
+
+		if ($event.keyCode == 13) {
+			$scope.saveModel();
+		}
+	}
+
+	$scope.folderChange = function () {
+		$log.debug("folderChange");
+
+		if (!$scope.model.folder || !$scope.model.folder.id) {
+			return;
+		}
+
+		bookmarkService.getFolderContent($scope.model.folder.id)
+		.then(function (result) {
+			$scope.searchResult = result;
+		})
+		.catch(function (reason) {
+			$log.error(reason);
+		});
 	}
 }]);

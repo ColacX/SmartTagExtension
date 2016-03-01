@@ -36,7 +36,7 @@
 		<strong>Failed</strong>
 	</div>
 
-	<div ng-show="status == 'ready'" style="width: 600px; height:500px">
+	<div ng-show="status == 'ready'" style="width: 600px; height:400px">
 		<div style="float:right; margin-bottom:5px">
 			<button type="button" class="btn btn-default btn-xs">
 				<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
@@ -56,8 +56,9 @@
 			   placeholder="choose folder here"
 			   typeahead="folderItem as folderItem.title for folderItem in folderList | filter:{title:$viewValue} | limitTo:5"
 			   typeahead-loading="true"
-			   typeahead-no-results="noResults"
-			   my-auto-focus />
+			   typeahead-on-select="folderChange()"
+			   my-auto-focus
+			   ng-keypress="inputKeyPress($event)" />
 		
 		<hr />
 
