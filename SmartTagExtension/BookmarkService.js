@@ -96,8 +96,10 @@ angular.module('MyModule').service('BookmarkService', ['$log', '$q', function ($
 	this.moveBookmark = function (bookmarkId, destination) {
 		var deferred;
 		deferred = $q.defer();
+		$log.error(destination);
 
 		chrome.bookmarks.move(bookmarkId, destination, function (result) {
+			$log.warn(result);
 			deferred.resolve(result);
 		});
 
