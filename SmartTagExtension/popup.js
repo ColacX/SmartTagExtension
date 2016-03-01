@@ -110,9 +110,28 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 			}
 		}
 		else {
-			console.log("save new bookmark to new folder");
-			//prompt save to new folder?
-			$scope.status = "success";
+			$log.debug("save new bookmark to new folder");
+
+			bookmarkService.createBookmark({
+				index: 0,
+				title: $scope.model.folder,
+			}).then(function (result) {
+				$log.warn(result);
+				return bookmarkService.createBookmark({
+					parentId: result.id,
+					index: 0,
+					title: $scope.model.title,
+					url: $scope.model.url
+				});
+			}).then(function (result) {
+				$log.warn(result);
+				$scope.status = "success";
+			})
+			.catch(function (reason) {
+				$log.error("failed");
+				$log.error(reason);
+				$scope.status = "failed";
+			});
 		}
 	};
 

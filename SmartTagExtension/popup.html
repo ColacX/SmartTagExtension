@@ -37,6 +37,15 @@
 	</div>
 
 	<div ng-show="status == 'ready'" style="width: 600px; height:500px">
+		<div style="float:right; margin-bottom:5px">
+			<button type="button" class="btn btn-default btn-xs">
+				<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+			</button>
+			<button type="button" class="btn btn-primary btn-xs" ng-click="deleteModel()">Delete</button>
+			<button type="button" class="btn btn-primary btn-xs" ng-click="saveModel()">Save</button>
+		</div>
+		<div style="clear:both"></div>
+
 		<input type="text" ng-model="model.url" class="form-control" placeholder="add url here" />
 
 		<input type="text" ng-model="model.title" class="form-control" placeholder="add title here" />
@@ -49,19 +58,7 @@
 			   typeahead-loading="true"
 			   typeahead-no-results="noResults"
 			   my-auto-focus />
-
-		<br />
-
-		<button type="button" class="btn btn-primary btn-xs" ng-repeat="tagItem in model.tags track by $index" ng-click="removeTag(tagItem)">{{tagItem}}</button>
-
-		<button type="button" class="btn btn-primary btn-xs" ng-click="saveModel()">Save</button>
-
-		<button type="button" class="btn btn-primary btn-xs" ng-click="deleteModel()">Delete</button>
-
-		<button type="button" class="btn btn-default btn-xs">
-			<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-		</button>
-
+		
 		<hr />
 
 		<div ng-repeat="searchItem in searchResult track by $index">

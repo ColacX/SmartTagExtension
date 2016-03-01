@@ -85,7 +85,7 @@ angular.module('MyModule').service('BookmarkService', ['$log', '$q', function ($
 		deferred = $q.defer();
 
 		chrome.bookmarks.create(bookmarkNode, function (result) {
-			deferred.resolve();
+			deferred.resolve(result);
 		});
 
 		return deferred.promise;
@@ -96,7 +96,7 @@ angular.module('MyModule').service('BookmarkService', ['$log', '$q', function ($
 		deferred = $q.defer();
 
 		chrome.bookmarks.move(bookmarkId, destination, function (result) {
-			deferred.resolve();
+			deferred.resolve(result);
 		});
 
 		return deferred.promise;
