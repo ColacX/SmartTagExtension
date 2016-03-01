@@ -161,8 +161,6 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 	}
 
 	$scope.inputKeyPress = function ($event) {
-		$log.debug(event);
-
 		if ($event.keyCode == 13) {
 			$scope.saveModel();
 		}

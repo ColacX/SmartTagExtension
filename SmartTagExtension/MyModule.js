@@ -50,11 +50,13 @@ angular.module('MyModule').service('TabService', ['$log', function ($log) {
 }]);
 
 //define directives
-angular.module('MyModule').directive('myAutoFocus', ['$document', function ($document) {
+angular.module('MyModule').directive('myAutoFocus', ['$document', '$timeout', function ($document, $timeout) {
 	return {
 		link: function (scope, element, attributes, controller) {
 			angular.element($document).ready(function () {
-				element[0].focus();
+				$timeout(function () {
+					element[0].focus();
+				}, 1000);
 			});
 		}
 	};
