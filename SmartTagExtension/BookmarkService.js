@@ -7,7 +7,9 @@ angular.module('MyModule').service('BookmarkService', ['$log', '$q', function ($
 		throw "chrome.bookmarks api is only available when running as a browser extension";
 	}
 
-	this.getData = function (targetUrl) {
+	var self = this;
+
+	self.getData = function (targetUrl) {
 		var deferred, folderList, currentBookmark, probe;
 		deferred = $q.defer();
 		folderList = [];
@@ -56,13 +58,11 @@ angular.module('MyModule').service('BookmarkService', ['$log', '$q', function ($
 		return deferred.promise;
 	};
 
-	this.getFolderContent = function (bookmarkId) {
+	self.getFolderContent = function (bookmarkId) {
 		var deferred;
 		deferred = $q.defer();
 
 		chrome.bookmarks.getSubTree(bookmarkId, function (result) {
-			$log.warn(result);
-
 			if (!result || result.length != 1 || !result[0].children) {
 				deferred.resolve([]);
 				return;
@@ -82,7 +82,7 @@ angular.module('MyModule').service('BookmarkService', ['$log', '$q', function ($
 		return deferred.promise;
 	};
 
-	this.createBookmark = function (bookmarkNode) {
+	self.createBookmark = function (bookmarkNode) {
 		var deferred;
 		deferred = $q.defer();
 
@@ -93,7 +93,7 @@ angular.module('MyModule').service('BookmarkService', ['$log', '$q', function ($
 		return deferred.promise;
 	};
 
-	this.moveBookmark = function (bookmarkId, destination) {
+	self.moveBookmark = function (bookmarkId, destination) {
 		var deferred;
 		deferred = $q.defer();
 
@@ -104,7 +104,7 @@ angular.module('MyModule').service('BookmarkService', ['$log', '$q', function ($
 		return deferred.promise;
 	};
 
-	this.removeBookmark = function (bookmarkId) {
+	self.removeBookmark = function (bookmarkId) {
 		var deferred;
 		deferred = $q.defer();
 

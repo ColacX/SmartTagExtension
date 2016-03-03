@@ -14,83 +14,56 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 
 	$scope.saveModel = function () {
 		$log.debug("save model");
-		$scope.status = "processing";
 
 		if (!$scope.model || !$scope.model.url || !$scope.model.folder) {
 			return;
 		}
 
-		if ($scope.model.folder.id) {
-
-			if ($scope.model.currentBookmark) {
-				$log.debug("move existing bookmark to existing folder...");
-
-				bookmarkService.moveBookmark(
-					$scope.model.currentBookmark.id,
-					{
-						parentId: $scope.model.folder.id,
-						index: 0
-					}
-				).then(function(){
-					$scope.status = "success";
-				})
-				.catch(function (reason) {
-					$log.error(reason);
-					$scope.status = "failed";
+		$scope.status = "processing";
+		$q.when()
+		.then(function () {
+			if (!$scope.model.folder.id) {
+				$log.debug("create folder if folder does not exist");
+				return bookmarkService.createBookmark({
+					index: 0,
+					title: $scope.model.folder,
 				});
 			}
 			else {
-				$log.debug("create new bookmark to existing folder...");
-
-				bookmarkService.createBookmark({
-					parentId: $scope.model.folder.id,
-					index: 0,
-					title: $scope.model.title,
-					url: $scope.model.url
-				}).then(function () {
-					$scope.status = "success";
-				})
-				.catch(function (reason) {
-					$log.error(reason);
-					$scope.status = "failed";
+				$log.debug("return existing folder instead");
+				return $q.when({
+					id: $scope.model.folder.id,
+					title: $scope.model.folder.title
 				});
 			}
-		}
-		else {
-			$log.debug("create new folder");
-
-			bookmarkService.createBookmark({
+		})
+		.then(function (folderInfo) {
+			$log.debug("create bookmark and add it to the folder");
+			return bookmarkService.createBookmark({
+				parentId: folderInfo.id,
 				index: 0,
-				title: $scope.model.folder,
-			}).then(function (result) {
-				if ($scope.model.currentBookmark) {
-					$log.debug("move new bookmark to existing folder...");
-					return bookmarkService.moveBookmark(
-						$scope.model.currentBookmark.id,
-						{
-							parentId: result.id,
-							index: 0
-						}
-					);
-				}
-				else{
-					$log.debug("create new bookmark to existing folder...");
-					return bookmarkService.createBookmark({
-						parentId: result.id,
-						index: 0,
-						title: $scope.model.title,
-						url: $scope.model.url
-					});
-				}
-			}).then(function (result) {
-				$scope.status = "success";
-
-			})
-			.catch(function (reason) {
-				$log.error(reason);
-				$scope.status = "failed";
+				title: $scope.model.title,
+				url: $scope.model.url
 			});
-		}
+		})
+		.then(function () {
+			if ($scope.model.currentBookmark && $scope.model.currentBookmark.url == $scope.model.url) {
+				$log.debug("remove existing bookmark");
+				return bookmarkService.removeBookmark(
+					$scope.model.currentBookmark.id
+				);
+			}
+
+			$log.debug("keep existing bookmark");
+			return $q.when();
+		})
+		.then(function () {
+			$scope.status = "success";
+		})
+		.catch(function (reason) {
+			$log.error(reason);
+			$scope.status = "failed";
+		});
 	};
 
 	$scope.deleteModel = function () {
@@ -138,7 +111,6 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 
 	tabService.currentTabInfo()
 		.then(function (tabInfo) {
-			$log.warn(tabInfo);
 			$scope.model.url = tabInfo.url;
 			$scope.model.title = tabInfo.title;
 			return bookmarkService.getData($scope.model.url);
@@ -146,7 +118,11 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 		.then(function (result) {
 			$scope.folderList = result.folderList;
 			$scope.model.folder = "";
-			$scope.model.currentBookmark = result.currentBookmark;
+
+			if (result.currentBookmark) {
+				$scope.model.currentBookmark = result.currentBookmark;
+				$scope.model.title = $scope.model.currentBookmark.title;
+			}
 
 			if ($scope.model.currentBookmark) {
 				//then fetch the folder title
