@@ -62,7 +62,9 @@
 		<br />
 		
 		<div ng-repeat="searchItem in searchResult track by $index">
-			<a href="{{searchItem.url}}" ng-click="openTab(searchItem.url)" title="{{searchItem.url}}">{{searchItem.title}}</a>
+			<div class="truncate">
+				<a href="{{searchItem.url}}" ng-click="openTab(searchItem.url)" title="{{searchItem.url}}">{{searchItem.title}}</a>
+			</div>
 		</div>
 	</div>
 	
