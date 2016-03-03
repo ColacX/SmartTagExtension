@@ -26,29 +26,6 @@ angular.module('MyModule').config(function ($translateProvider) {
 	$translateProvider.preferredLanguage('sv');
 });
 
-//define services
-angular.module('MyModule').service('TabService', ['$log', function ($log) {
-
-	//fetches the url of the current window and active tab
-	this.requestCurrentTabData = function (callback) {
-
-		if (!chrome.tabs) {
-			$log.error("chrome.tabs api is only available when running as a browser extension");
-			return callback("request error");
-		}
-
-		chrome.tabs.query({ active: true, currentWindow: true }, function (result) {
-			var tab = result[0];
-			callback({
-				url: tab.url,
-				title: tab.title
-				//favIconUrl: tab.favIconUrl
-			});
-		});
-
-	};
-}]);
-
 //define directives
 angular.module('MyModule').directive('myAutoFocus', ['$document', '$timeout', function ($document, $timeout) {
 	return {
@@ -56,7 +33,7 @@ angular.module('MyModule').directive('myAutoFocus', ['$document', '$timeout', fu
 			angular.element($document).ready(function () {
 				$timeout(function () {
 					element[0].focus();
-				}, 1000);
+				}, 500);
 			});
 		}
 	};

@@ -2,62 +2,15 @@
 //define controllers
 angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$log', '$q', 'TabService', 'BookmarkService', 'StorageService', function ($scope, $timeout, $log, $q, tabService, bookmarkService, storageService) {
 	var self = this;
-
 	$scope.model = {
 		url: "requesting...",
 		title: "requesting...",
 		folder: "requesting...",
 		currentBookmark: null
 	};
-
 	$scope.folderList = [];
 	$scope.searchResult = [];
-	$scope.status = "ready";
-
-	tabService.requestCurrentTabData(function (result) {
-		$scope.status = "processing";
-		$scope.model.url = result.url;
-		$scope.model.title = result.title;
-		$scope.$digest();
-
-		bookmarkService.getData($scope.model.url)
-		.then(function (result) {
-			
-			$scope.folderList = result.folderList;
-			$scope.model.folder = "";
-			$scope.model.currentBookmark = result.currentBookmark;
-
-			if ($scope.model.currentBookmark) {
-				//then fetch the folder title
-				for (var i = 0; i < $scope.folderList.length; i++) {
-					if ($scope.folderList[i].id == $scope.model.currentBookmark.parentId) {
-						$scope.model.folder = {
-							id: $scope.folderList[i].id,
-							title: $scope.folderList[i].title
-						};
-						break;
-					}
-				}
-			}
-		})
-		.then(function () {
-			if (!$scope.model.folder && !$scope.model.folder.id) {
-				return $q.when(null); //returns an auto resolved promise
-			}
-
-			return bookmarkService.getFolderContent($scope.model.folder.id);
-		})
-		.then(function (result) {
-			$scope.searchResult = result;
-		})
-		.then(function () {
-			$scope.status = "ready";
-		})
-		.catch(function (reason) {
-			$log.error(reason);
-			$scope.status = "failed";
-		});
-	});
+	$scope.status = "processing";
 
 	$scope.saveModel = function () {
 		$log.debug("save model");
@@ -181,4 +134,46 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 			$log.error(reason);
 		});
 	}
+
+
+	tabService.currentTabInfo()
+		.then(function (tabInfo) {
+			$log.warn(tabInfo);
+			$scope.model.url = tabInfo.url;
+			$scope.model.title = tabInfo.title;
+			return bookmarkService.getData($scope.model.url);
+		})
+		.then(function (result) {
+			$scope.folderList = result.folderList;
+			$scope.model.folder = "";
+			$scope.model.currentBookmark = result.currentBookmark;
+
+			if ($scope.model.currentBookmark) {
+				//then fetch the folder title
+				for (var i = 0; i < $scope.folderList.length; i++) {
+					if ($scope.folderList[i].id == $scope.model.currentBookmark.parentId) {
+						$scope.model.folder = {
+							id: $scope.folderList[i].id,
+							title: $scope.folderList[i].title
+						};
+						break;
+					}
+				}
+			}
+		})
+		.then(function () {
+			if (!$scope.model.folder && !$scope.model.folder.id) {
+				return $q.when(null); //returns an auto resolved promise
+			}
+
+			return bookmarkService.getFolderContent($scope.model.folder.id);
+		})
+		.then(function (result) {
+			$scope.searchResult = result;
+			$scope.status = "ready";
+		})
+		.catch(function (reason) {
+			$log.error(reason);
+			$scope.status = "failed";
+		});
 }]);
