@@ -64,9 +64,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Image Include="icon.png" />
     <Image Include="icon128.png" />
-    <Image Include="settings24.png" />
+    <Image Include="Icon24.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\packages\jQuery.1.9.1\Tools\jquery-1.9.1.intellisense.js" />
@@ -882,6 +881,7 @@
     <None Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Scripts\version.json" />
     <None Include="StorageService.js" />
+    <None Include="TabService.js" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.txt" />
