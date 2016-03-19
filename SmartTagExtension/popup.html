@@ -36,9 +36,9 @@
 			<!--<button type="button" class="btn btn-default btn-xs">
 				<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 			</button>-->
-			<button type="button" class="btn btn-primary btn-xs" ng-click="deleteFolder()">Delete Folder</button>
-			<button type="button" class="btn btn-primary btn-xs" ng-click="renameFolder()">Rename Folder</button>
-			<button type="button" class="btn btn-primary btn-xs" ng-click="deleteModel()">Delete Bookmark</button>
+			<button type="button" class="btn btn-primary btn-xs" ng-click="deleteFolder()" ng-disabled="!model.folder.id">Delete Folder</button>
+			<button type="button" class="btn btn-primary btn-xs" ng-click="renameFolder()" ng-disabled="!model.folder.id">Rename Folder</button>
+			<button type="button" class="btn btn-primary btn-xs" ng-click="deleteModel()" ng-disabled="!model.currentBookmark">Delete Bookmark</button>
 			<button type="button" class="btn btn-primary btn-xs" ng-click="saveModel()">Save Bookmark</button>
 		</div>
 		<div style="clear:both"></div>
