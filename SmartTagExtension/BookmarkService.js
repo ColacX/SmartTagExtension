@@ -115,6 +115,17 @@ angular.module('MyModule').service('BookmarkService', ['$log', '$q', function ($
 		return deferred.promise;
 	};
 
+	self.updateBookmark = function (bookmarkId, changes) {
+		var deferred;
+		deferred = $q.defer();
+
+		chrome.bookmarks.update(bookmarkId, changes, function () {
+			deferred.resolve();
+		});
+
+		return deferred.promise;
+	};
+
 	self.deleteFolder = function (folderId) {
 		var deferred;
 		deferred = $q.defer();

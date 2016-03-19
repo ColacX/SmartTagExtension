@@ -21,3 +21,13 @@ html{
 	margin-top: -10%;
 	text-align:center;
 }
+
+.my-input-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 280px;
+    margin-left: -20%;
+	margin-top: -10%;
+	text-align:center;
+}

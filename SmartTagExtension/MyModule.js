@@ -25,3 +25,13 @@ angular.module('MyModule').controller('MyConfirmDialogController', function ($sc
 		$uibModalInstance.close(false);
 	};
 });
+
+angular.module('MyModule').controller('MyInputDialogController', function ($scope, $uibModalInstance) {
+	$scope.submitButton = function () {
+		$uibModalInstance.close($scope.inputData);
+	};
+
+	$scope.cancelButton = function () {
+		$uibModalInstance.close();
+	};
+});

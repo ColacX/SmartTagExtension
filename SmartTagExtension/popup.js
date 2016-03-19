@@ -127,23 +127,59 @@ function ($scope, $timeout, $log, $q, $uibModal, tabService, bookmarkService, st
 			templateUrl: "MyConfirmDialogTemplate.html",
 			controller: "MyConfirmDialogController",
 			windowClass: "my-confirm-dialog",
-			size: "sm",
-			resolve: {
-			}
+			size: "sm"
 		});
 
 		modalInstance.result.then(function (isYes) {
+			if (!isYes) {
+				return;
+			}
+
 			$scope.status = "processing";
-			return bookmarkService.deleteFolder($scope.model.folder.id);
-			
-		})
-		.then(function () {
-			$scope.status = "success";
-		})
-		.catch(function (reason) {
-			$log.error(reason);
-			$scope.status = "failed";
-		});;
+			bookmarkService.deleteFolder($scope.model.folder.id)
+			.then(function () {
+				$scope.status = "success";
+			})
+			.catch(function (reason) {
+				$log.error(reason);
+				$scope.status = "failed";
+			});
+		});
+	}
+
+	$scope.renameFolder = function () {
+		$log.debug("renameFolder");
+
+		if (!$scope.model.folder || !$scope.model.folder.id) {
+			return;
+		}
+
+		var modalInstance = $uibModal.open({
+			animation: true,
+			backdrop: true,
+			templateUrl: "MyInputDialogTemplate.html",
+			controller: "MyInputDialogController",
+			windowClass: "my-input-dialog",
+			size: "sm"
+		});
+
+		modalInstance.result.then(function (inputData) {
+			if (!inputData) {
+				return;
+			}
+
+			$scope.status = "processing";
+			bookmarkService.updateBookmark($scope.model.folder.id, {
+				title: inputData
+			})
+			.then(function () {
+				$scope.status = "success";
+			})
+			.catch(function (reason) {
+				$log.error(reason);
+				$scope.status = "failed";
+			});
+		});
 	}
 
 	tabService.currentTabInfo()
