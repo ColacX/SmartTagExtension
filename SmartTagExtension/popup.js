@@ -1,6 +1,7 @@
 'use strict';
 //define controllers
-angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$log', '$q', 'TabService', 'BookmarkService', 'StorageService', function ($scope, $timeout, $log, $q, tabService, bookmarkService, storageService) {
+angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$log', '$q', '$uibModal', 'TabService', 'BookmarkService', 'StorageService',
+function ($scope, $timeout, $log, $q, $uibModal, tabService, bookmarkService, storageService) {
 	var self = this;
 	$scope.model = {
 		url: "requesting...",
@@ -68,6 +69,11 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 
 	$scope.deleteModel = function () {
 		$log.debug("delete model");
+
+		if (!$scope.model.currentBookmark) {
+			return;
+		}
+
 		$scope.status = "processing";
 
 		bookmarkService.removeBookmark(
@@ -108,6 +114,37 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 		});
 	}
 
+	$scope.deleteFolder = function () {
+		$log.debug("deleteFolder");
+
+		if (!$scope.model.folder || !$scope.model.folder.id) {
+			return;
+		}
+
+		var modalInstance = $uibModal.open({
+			animation: true,
+			backdrop: true,
+			templateUrl: "MyConfirmDialogTemplate.html",
+			controller: "MyConfirmDialogController",
+			windowClass: "my-confirm-dialog",
+			size: "sm",
+			resolve: {
+			}
+		});
+
+		modalInstance.result.then(function (isYes) {
+			$scope.status = "processing";
+			return bookmarkService.deleteFolder($scope.model.folder.id);
+			
+		})
+		.then(function () {
+			$scope.status = "success";
+		})
+		.catch(function (reason) {
+			$log.error(reason);
+			$scope.status = "failed";
+		});;
+	}
 
 	tabService.currentTabInfo()
 		.then(function (tabInfo) {

@@ -114,4 +114,21 @@ angular.module('MyModule').service('BookmarkService', ['$log', '$q', function ($
 
 		return deferred.promise;
 	};
+
+	self.deleteFolder = function (folderId) {
+		var deferred;
+		deferred = $q.defer();
+
+		//should we delete only empty folders?
+		chrome.bookmarks.removeTree(folderId, function () {
+			if (chrome.runtime.lastError) {
+				deferred.reject(chrome.runtime.lastError.message);
+				return;
+			}
+
+			deferred.resolve();
+		});
+
+		return deferred.promise;
+	};
 }]);

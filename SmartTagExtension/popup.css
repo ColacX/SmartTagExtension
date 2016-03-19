@@ -11,3 +11,13 @@ html{
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.my-confirm-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 280px;
+    margin-left: -20%;
+	margin-top: -10%;
+	text-align:center;
+}

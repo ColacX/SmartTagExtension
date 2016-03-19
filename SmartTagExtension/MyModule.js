@@ -1,7 +1,7 @@
 'use strict';
 
 //define module and dependencies to other modules
-angular.module('MyModule', ['ui.bootstrap']);
+angular.module('MyModule', ['ui.bootstrap', 'ui.bootstrap.modal']);
 
 //define directives
 angular.module('MyModule').directive('myAutoFocus', ['$document', '$timeout', function ($document, $timeout) {
@@ -15,3 +15,13 @@ angular.module('MyModule').directive('myAutoFocus', ['$document', '$timeout', fu
 		}
 	};
 }]);
+
+angular.module('MyModule').controller('MyConfirmDialogController', function ($scope, $uibModalInstance) {
+	$scope.yesButton = function () {
+		$uibModalInstance.close(true);
+	};
+
+	$scope.noButton = function () {
+		$uibModalInstance.close(false);
+	};
+});
