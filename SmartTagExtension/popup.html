@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="MyModule" ng-controller="MyController">
+
 <head>
 	<title>CX Bookmark Helper</title>
 	<link rel="stylesheet" type="text/css" href="Content/bootstrap.min.css" />
@@ -17,54 +18,49 @@
 </head>
 
 <!--the ng-app directive is the main entry point for angularJS-->
-<body ng-app="MyModule" ng-controller="MyController" style="padding:5px 5px 5px 5px;">
 
-	<div class="alert alert-info" ng-show="status == 'processing'">
-		<strong>Processing...</strong>
-	</div>
-
-	<div class="alert alert-success" ng-show="status == 'success'">
-		<strong>Success</strong>
-	</div>
-
-	<div class="alert alert-danger" ng-show="status == 'failed'">
-		<strong>Failed</strong>
-	</div>
-
-	<div ng-show="status == 'ready'" style="width: 600px; height:400px">
-		<div style="float:right; margin-bottom:5px">
-			<!--<button type="button" class="btn btn-default btn-xs">
-				<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-			</button>-->
-			<button type="button" class="btn btn-primary btn-xs" ng-click="deleteFolder()" ng-disabled="!model.folder.id">Delete Folder</button>
-			<button type="button" class="btn btn-primary btn-xs" ng-click="renameFolder()" ng-disabled="!model.folder.id">Rename Folder</button>
-			<button type="button" class="btn btn-primary btn-xs" ng-click="deleteModel()" ng-disabled="!model.currentBookmark">Delete Bookmark</button>
-			<button type="button" class="btn btn-primary btn-xs" ng-click="saveModel()">Save Bookmark</button>
+<body>
+	<div class="content">
+		<div class="alert alert-info" ng-show="status == 'processing'">
+			<strong>Processing...</strong>
 		</div>
-		<div style="clear:both"></div>
 
-		<input type="text" ng-model="model.url" class="form-control" placeholder="add url here" />
+		<div class="alert alert-success" ng-show="status == 'success'">
+			<strong>Success</strong>
+		</div>
 
-		<input type="text" ng-model="model.title" class="form-control" placeholder="add title here" />
+		<div class="alert alert-danger" ng-show="status == 'failed'">
+			<strong>Failed</strong>
+		</div>
 
-		<input type="text"
-			   class="form-control"
-			   placeholder="choose folder here"
-			   ng-model="model.folder"
-			   ng-keypress="inputKeyPress($event)"
-			   uib-typeahead="folderItem as folderItem.title for folderItem in folderList | filter:{title:$viewValue} | limitTo:5"
-			   typeahead-loading="true"
-			   typeahead-on-select="folderChange()"
-			   my-auto-focus />
+		<div ng-show="status == 'ready'">
+			<div style="float:right; margin-bottom:5px">
+				<button type="button" class="btn btn-primary btn-xs" ng-click="deleteFolder()" ng-disabled="!model.folder.id">Delete Folder</button>
+				<button type="button" class="btn btn-primary btn-xs" ng-click="renameFolder()" ng-disabled="!model.folder.id">Rename Folder</button>
+				<button type="button" class="btn btn-primary btn-xs" ng-click="deleteModel()" ng-disabled="!model.currentBookmark">Delete Bookmark</button>
+				<button type="button" class="btn btn-primary btn-xs" ng-click="saveModel()">Save Bookmark</button>
+			</div>
+			<div style="clear:both"></div>
 
-		<br />
-		
-		<div ng-repeat="searchItem in searchResult track by $index">
-			<div class="truncate">
-				<a href="{{searchItem.url}}" ng-click="openTab(searchItem.url)" title="{{searchItem.url}}">{{searchItem.title}}</a>
+			<input type="text" ng-model="model.url" class="form-control" placeholder="add url here" />
+
+			<input type="text" ng-model="model.title" class="form-control" placeholder="add title here" />
+
+			<input type="text" class="form-control" placeholder="choose folder here" ng-model="model.folder" ng-keypress="inputKeyPress($event)"
+			 uib-typeahead="folderItem as folderItem.title for folderItem in folderList | filter:{title:$viewValue} | limitTo:5" typeahead-loading="true"
+			 typeahead-on-select="folderChange()" my-auto-focus />
+
+			<br />
+
+			<div ng-repeat="searchItem in searchResult track by $index">
+				<div class="truncate">
+					<a href="{{searchItem.url}}" ng-click="openTab(searchItem.url)" title="{{searchItem.url}}">{{searchItem.title}}</a>
+				</div>
 			</div>
 		</div>
+
 	</div>
-	
+
 </body>
+
 </html>

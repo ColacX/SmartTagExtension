@@ -1,7 +1,6 @@
 'use strict';
 //define controllers
-angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$log', '$q', '$uibModal', 'TabService', 'BookmarkService', 'StorageService',
-function ($scope, $timeout, $log, $q, $uibModal, tabService, bookmarkService, storageService) {
+angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$log', '$q', '$uibModal', 'TabService', 'BookmarkService', 'StorageService', function ($scope, $timeout, $log, $q, $uibModal, tabService, bookmarkService, storageService) {
 	var self = this;
 	$scope.model = {
 		url: "requesting...",
@@ -22,49 +21,49 @@ function ($scope, $timeout, $log, $q, $uibModal, tabService, bookmarkService, st
 
 		$scope.status = "processing";
 		$q.when()
-		.then(function () {
-			if (!$scope.model.folder.id) {
-				$log.debug("create folder if folder does not exist");
+			.then(function () {
+				if (!$scope.model.folder.id) {
+					$log.debug("create folder if folder does not exist");
+					return bookmarkService.createBookmark({
+						index: 0,
+						title: $scope.model.folder,
+					});
+				}
+				else {
+					$log.debug("return existing folder instead");
+					return $q.when({
+						id: $scope.model.folder.id,
+						title: $scope.model.folder.title
+					});
+				}
+			})
+			.then(function (folderInfo) {
+				$log.debug("create bookmark and add it to the folder");
 				return bookmarkService.createBookmark({
+					parentId: folderInfo.id,
 					index: 0,
-					title: $scope.model.folder,
+					title: $scope.model.title,
+					url: $scope.model.url
 				});
-			}
-			else {
-				$log.debug("return existing folder instead");
-				return $q.when({
-					id: $scope.model.folder.id,
-					title: $scope.model.folder.title
-				});
-			}
-		})
-		.then(function (folderInfo) {
-			$log.debug("create bookmark and add it to the folder");
-			return bookmarkService.createBookmark({
-				parentId: folderInfo.id,
-				index: 0,
-				title: $scope.model.title,
-				url: $scope.model.url
-			});
-		})
-		.then(function () {
-			if ($scope.model.currentBookmark && $scope.model.currentBookmark.url == $scope.model.url) {
-				$log.debug("remove existing bookmark");
-				return bookmarkService.removeBookmark(
-					$scope.model.currentBookmark.id
-				);
-			}
+			})
+			.then(function () {
+				if ($scope.model.currentBookmark && $scope.model.currentBookmark.url == $scope.model.url) {
+					$log.debug("remove existing bookmark");
+					return bookmarkService.removeBookmark(
+						$scope.model.currentBookmark.id
+					);
+				}
 
-			$log.debug("keep existing bookmark");
-			return $q.when();
-		})
-		.then(function () {
-			$scope.status = "success";
-		})
-		.catch(function (reason) {
-			$log.error(reason);
-			$scope.status = "failed";
-		});
+				$log.debug("keep existing bookmark");
+				return $q.when();
+			})
+			.then(function () {
+				$scope.status = "success";
+			})
+			.catch(function (reason) {
+				$log.error(reason);
+				$scope.status = "failed";
+			});
 	};
 
 	$scope.deleteModel = function () {
@@ -81,10 +80,10 @@ function ($scope, $timeout, $log, $q, $uibModal, tabService, bookmarkService, st
 		).then(function () {
 			$scope.status = "success";
 		})
-		.catch(function (reason) {
-			$log.error(reason);
-			$scope.status = "failed";
-		});
+			.catch(function (reason) {
+				$log.error(reason);
+				$scope.status = "failed";
+			});
 	};
 
 	$scope.openTab = function (urlName) {
@@ -106,12 +105,12 @@ function ($scope, $timeout, $log, $q, $uibModal, tabService, bookmarkService, st
 		}
 
 		bookmarkService.getFolderContent($scope.model.folder.id)
-		.then(function (result) {
-			$scope.searchResult = result;
-		})
-		.catch(function (reason) {
-			$log.error(reason);
-		});
+			.then(function (result) {
+				$scope.searchResult = result;
+			})
+			.catch(function (reason) {
+				$log.error(reason);
+			});
 	}
 
 	$scope.deleteFolder = function () {
@@ -137,13 +136,13 @@ function ($scope, $timeout, $log, $q, $uibModal, tabService, bookmarkService, st
 
 			$scope.status = "processing";
 			bookmarkService.deleteFolder($scope.model.folder.id)
-			.then(function () {
-				$scope.status = "success";
-			})
-			.catch(function (reason) {
-				$log.error(reason);
-				$scope.status = "failed";
-			});
+				.then(function () {
+					$scope.status = "success";
+				})
+				.catch(function (reason) {
+					$log.error(reason);
+					$scope.status = "failed";
+				});
 		});
 	}
 
@@ -172,13 +171,13 @@ function ($scope, $timeout, $log, $q, $uibModal, tabService, bookmarkService, st
 			bookmarkService.updateBookmark($scope.model.folder.id, {
 				title: inputData
 			})
-			.then(function () {
-				$scope.status = "success";
-			})
-			.catch(function (reason) {
-				$log.error(reason);
-				$scope.status = "failed";
-			});
+				.then(function () {
+					$scope.status = "success";
+				})
+				.catch(function (reason) {
+					$log.error(reason);
+					$scope.status = "failed";
+				});
 		});
 	}
 
