@@ -20,20 +20,17 @@
 <!--the ng-app directive is the main entry point for angularJS-->
 
 <body>
-	<div class="content">
+	<div class="content" ng-show="status == 'ready' || status == 'failed' || status == 'success'">
 		<div class="alert alert-info" ng-show="status == 'processing'">
 			<strong>Processing...</strong>
 		</div>
-
 		<div class="alert alert-success" ng-show="status == 'success'">
 			<strong>Success</strong>
 		</div>
-
 		<div class="alert alert-danger" ng-show="status == 'failed'">
 			<strong>Failed</strong>
 		</div>
-
-		<div ng-show="status == 'ready'">
+		<div ng-show="status == 'ready'" class="sizeFixed">
 			<div style="float:right; margin-bottom:5px">
 				<button type="button" class="btn btn-primary btn-xs" ng-click="deleteFolder()" ng-disabled="!model.folder.id">Delete Folder</button>
 				<button type="button" class="btn btn-primary btn-xs" ng-click="renameFolder()" ng-disabled="!model.folder.id">Rename Folder</button>
@@ -41,26 +38,19 @@
 				<button type="button" class="btn btn-primary btn-xs" ng-click="saveModel()">Save Bookmark</button>
 			</div>
 			<div style="clear:both"></div>
-
 			<input type="text" ng-model="model.url" class="form-control" placeholder="add url here" />
-
 			<input type="text" ng-model="model.title" class="form-control" placeholder="add title here" />
-
 			<input type="text" class="form-control" placeholder="choose folder here" ng-model="model.folder" ng-keypress="inputKeyPress($event)"
 			 uib-typeahead="folderItem as folderItem.title for folderItem in folderList | filter:{title:$viewValue} | limitTo:5" typeahead-loading="true"
 			 typeahead-on-select="folderChange()" my-auto-focus />
-
 			<br />
-
 			<div ng-repeat="searchItem in searchResult track by $index">
 				<div class="truncate">
 					<a href="{{searchItem.url}}" ng-click="openTab(searchItem.url)" title="{{searchItem.url}}">{{searchItem.title}}</a>
 				</div>
 			</div>
 		</div>
-
 	</div>
-
 </body>
 
 </html>

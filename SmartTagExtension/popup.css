@@ -32,8 +32,11 @@ html{
 	text-align:center;
 }
 
-.content {
+.content{
+    padding: 5px 5px 5px 5px;
+}
+
+.sizeFixed{
     width: 600px;
     height: 400px;
-    padding: 5px 5px 5px 5px;
 }
