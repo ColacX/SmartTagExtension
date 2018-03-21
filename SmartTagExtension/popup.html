@@ -44,10 +44,11 @@
 			 uib-typeahead="folderItem as folderItem.title for folderItem in folderList | filter:{title:$viewValue} | limitTo:5" typeahead-loading="true"
 			 typeahead-on-select="folderChange()" my-auto-focus />
 			<br />
-			<div ng-repeat="searchItem in searchResult track by $index">
-				<div class="truncate">
-					<a href="{{searchItem.url}}" ng-click="openTab(searchItem.url)" title="{{searchItem.url}}">{{searchItem.title}}</a>
-				</div>
+			<div class="result-grid" ng-repeat="searchItem in searchResult track by $index">
+				<a class="ellipsis" href="{{searchItem.url}}" ng-click="openTab(searchItem.url)" title="{{searchItem.url}}">{{searchItem.title}}</a>
+				<button type="button" class="btn btn-link btn-xs" ng-click="removeBookmark(searchItem.id)">
+					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+				</button>
 			</div>
 		</div>
 	</div>

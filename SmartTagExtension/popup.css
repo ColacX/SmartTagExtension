@@ -6,12 +6,6 @@ html{
 	margin: 0px 0px 0px 0px;
 }
 
-.truncate {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .my-confirm-dialog {
     position: fixed;
     top: 50%;
@@ -39,4 +33,21 @@ html{
 .sizeFixed{
     width: 600px;
     height: 400px;
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: auto 24px;
+    grid-row-gap: 15px;
+}
+
+.btn .btn-primary .btn-xs{
+    width: 30px;
+    height: 30px;
 }

@@ -75,11 +75,10 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 
 		$scope.status = "processing";
 
-		bookmarkService.removeBookmark(
-			$scope.model.currentBookmark.id
-		).then(function () {
-			$scope.status = "success";
-		})
+		bookmarkService.removeBookmark($scope.model.currentBookmark.id)
+			.then(function () {
+				$scope.status = "success";
+			})
 			.catch(function (reason) {
 				$log.error(reason);
 				$scope.status = "failed";
@@ -89,6 +88,33 @@ angular.module('MyModule').controller('MyController', ['$scope', '$timeout', '$l
 	$scope.openTab = function (urlName) {
 		$log.debug("openTab");
 		chrome.tabs.create({ url: urlName });
+	}
+
+	$scope.removeBookmark = function (bookmarkId) {
+		var modalInstance = $uibModal.open({
+			animation: true,
+			backdrop: true,
+			templateUrl: "MyConfirmDialogTemplate.html",
+			controller: "MyConfirmDialogController",
+			windowClass: "my-confirm-dialog",
+			size: "sm"
+		});
+
+		modalInstance.result.then(function (isYes) {
+			if (!isYes) {
+				return;
+			}
+
+			$scope.status = "processing";
+			bookmarkService.removeBookmark(bookmarkId)
+				.then(function () {
+					$scope.status = "success";
+				})
+				.catch(function (reason) {
+					$log.error(reason);
+					$scope.status = "failed";
+				});
+		});
 	}
 
 	$scope.inputKeyPress = function ($event) {
