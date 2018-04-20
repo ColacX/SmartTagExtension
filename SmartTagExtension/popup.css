@@ -41,7 +41,13 @@ html{
     text-overflow: ellipsis;
 }
 
-.result-grid {
+.result-container{
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.result-item {
     display: grid;
     grid-template-columns: auto 24px;
     grid-row-gap: 15px;
